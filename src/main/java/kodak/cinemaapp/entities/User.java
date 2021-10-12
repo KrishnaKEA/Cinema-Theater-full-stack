@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
@@ -32,4 +33,6 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
     }
+    @ManyToOne
+    Movie movie;
 }

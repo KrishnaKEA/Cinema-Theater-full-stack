@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -30,4 +29,18 @@ public class Movie {
         this.description = description;
         this.rating = rating;
     }
+    @OneToMany(mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    List<User> Users = new ArrayList<>();
+
+
+    public void addUser(User user){
+        Users.add(user);
+        user.setMovie(this);
+
+    }
+
+
+
+
+
 }
