@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 
 @ControllerAdvice
@@ -14,17 +14,23 @@ public class GlobalExceptionHandler {
 
         // Handle Movie exception specifically
         @ExceptionHandler(MovieNotFoundException.class)
-        public ResponseEntity<?> handleMovieNotFoundException(
-                MovieNotFoundException exception, WebRequest request){
-            ErrorMapper errorMapper = new ErrorMapper(new Date(), exception.getMessage(), request.getDescription(false));
-            return new ResponseEntity(errorMapper, HttpStatus.NOT_FOUND);
+        public ResponseEntity<ErrorMapper> resourceAlreadyExists(MovieNotFoundException ex) {
+            ErrorMapper response = new ErrorMapper();
+            response.setPath("NOT_FOUND");
+            response.setMessage(ex.getMessage());
+            response.setTimestamp(LocalDateTime.now());
+
+            return new ResponseEntity<ErrorMapper>(response, HttpStatus.NOT_FOUND);
         }
 
         // Handle Movie exception globally
         @ExceptionHandler(Exception.class)
-        public ResponseEntity<?> Exception(
-               Exception exception, WebRequest request){
-            ErrorMapper errorMapper = new ErrorMapper(new Date(), exception.getMessage(), request.getDescription(false));
-            return new ResponseEntity(errorMapper, HttpStatus.INTERNAL_SERVER_ERROR);
+        public ResponseEntity<ErrorMapper> resourceAlreadyExists(Exception ex) {
+            ErrorMapper response = new ErrorMapper();
+            response.setPath("Internal Server Error");
+            response.setMessage(ex.getMessage());
+            response.setTimestamp(LocalDateTime.now());
+
+            return new ResponseEntity<ErrorMapper>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 }
