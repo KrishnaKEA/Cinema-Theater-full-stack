@@ -10,4 +10,5 @@ public interface MovieRepo extends JpaRepository<Movie, Long> {
     Iterable<Movie> findMovieByStoryAndActor(String story, String actor);
 
     Iterable<Movie> findMovieByStory(String story);
+
 }

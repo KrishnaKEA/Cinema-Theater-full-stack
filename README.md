@@ -37,3 +37,10 @@ IntelliJ Idea Ultimate IDE: https://www.jetbrains.com/idea/download/#section=win
       http://localhost:8082/movies/update/id ==> API to update/edit Movie by id
 
       http://localhost:8082/movies/delete/id ==> API to delete specific movie by id
+
+Lastly, any wrong fetching / editing by id will normally throw exception.
+Although, Spring will throw its default one if one is not provided.
+Here we have made our Customer exception handling for movies namely 'MovieNotFoundException' which will return 'Timestamp (Date & time)', 'message (i.e. custom msg)' and 'path (uri)'.
+
+For testing, try with an id that does not exist in our database:  http://localhost:8082/api/movies/55 
+

@@ -3,9 +3,11 @@ package kodak.cinemaapp.entities.movie;
 import kodak.cinemaapp.DTOs.MovieDTO;
 import kodak.cinemaapp.exception.MovieNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/movies")
@@ -24,7 +26,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    MovieDTO getMovie(@PathVariable Long id)
+    MovieDTO getMovie(@PathVariable Long id) throws MovieNotFoundException
     {
         return service.getMovie(id);
     }
@@ -34,13 +36,14 @@ public class MovieController {
         return service.addMovie(newMovie);
     }
 
-//    @PostMapping("/new")
-//    List<MovieDTO> addMovies(@RequestBody  List<MovieDTO> newMovies) {
-//        return service.addMovies(newMovies);
+//    @PostMapping("/create")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    void create(@RequestBody MovieDTO movie) throws MovieNotFoundException{
+//        service.addMovie(movie);
 //    }
 
     @PutMapping("/update/{id}")
-    MovieDTO editMovie(@RequestBody MovieDTO oldMovie,@PathVariable Long id ) throws MovieNotFoundException {
+    MovieDTO editMovie(@RequestBody MovieDTO oldMovie,@PathVariable Long id )  {
         return service.editMovie(oldMovie,id);
     }
 
@@ -48,4 +51,9 @@ public class MovieController {
     void deleteMovie(@PathVariable Long id){
         service.deleteMovie(id);
     }
+
+//    @GetMapping("/hello")
+//    public String hello(@RequestParam(required = false, value = "name", defaultValue = "World") String name) {
+//        return String.format("Hello, %s!", name);
+//    }
 }

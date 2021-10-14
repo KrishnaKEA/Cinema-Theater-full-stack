@@ -1,13 +1,8 @@
 package kodak.cinemaapp.exception;
 
-public class UserNotFoundException extends Exception {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class UserNotFoundException extends RuntimeException {
 
-	public UserNotFoundException() {
-	}
+	private static final long serialVersionUID = 1L;
 
 	public UserNotFoundException(String message) {
 		super(message);

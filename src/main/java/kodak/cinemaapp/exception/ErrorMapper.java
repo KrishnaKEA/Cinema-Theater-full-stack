@@ -1,41 +1,24 @@
 package kodak.cinemaapp.exception;
 
+import lombok.Data;
 import java.util.Date;
 
+@Data
 public class ErrorMapper {
-	private String url;
+	private Date timestamp;
 	private String message;
-	private Date now;
+	private String path;
 
-	public ErrorMapper(String url, String message, Date now) {
-		super();
-		this.url = url;
+
+
+	public ErrorMapper(Date timestamp, String message, String path ) {
+		this.timestamp = timestamp;
 		this.message = message;
-		this.now = now;
+		this.path = path;
+
+
 	}
 
-	public String getUrl() {
-		return url;
-	}
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public Date getNow() {
-		return now;
-	}
-
-	public void setNow(Date now) {
-		this.now = now;
-	}
 
 }
