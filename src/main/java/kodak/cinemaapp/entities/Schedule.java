@@ -22,11 +22,8 @@ public class Schedule {
     @Column(name="hall_id")
     int hallId;
 
-    @Column
+    @Column(name = "schedule_date")
     LocalDate date;
-
-    /*@ManyToOne // * -> 1
-    Hall hall;*/
 
     @OneToMany // * -> 1
     List<Slot> slots = new ArrayList<>();

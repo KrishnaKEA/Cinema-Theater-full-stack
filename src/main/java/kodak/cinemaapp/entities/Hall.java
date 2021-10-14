@@ -19,13 +19,13 @@ public class Hall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column
+    @Column(name="hallName")
     String name;
 
-    @Column
+    @Column(name = "seatsX")
     int seatsX;
 
-    @Column
+    @Column(name = "seatsY")
     int seatsY;
 
     @OneToMany(mappedBy = "hall")

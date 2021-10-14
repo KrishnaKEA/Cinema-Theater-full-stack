@@ -19,16 +19,16 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column
+    @Column(name = "movie_title")
     String title;
 
-    @Column
+    @Column(name = "age_group")
     String ageGroup;
 
-    @Column
+    @Column(name = "movie_cast")
     String cast;
 
-    @Column
+    @Column(name = "movie_description")
     String description;
 
     @Column

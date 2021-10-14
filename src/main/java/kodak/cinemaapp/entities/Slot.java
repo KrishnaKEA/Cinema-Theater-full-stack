@@ -21,7 +21,7 @@ public class Slot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column
+    @Column(name = "slot_time")
     SlotTime slot;
 
     @ManyToOne(cascade = CascadeType.ALL)
