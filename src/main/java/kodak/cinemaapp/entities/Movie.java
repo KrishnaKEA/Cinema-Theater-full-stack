@@ -20,9 +20,9 @@ public class Movie {
     private String ageGroup;
     private String actor;
     private String description;
-    private boolean rating;
+    private String rating;
 
-    public Movie(String title, String ageGroup, String actor, String description, boolean rating) {
+    public Movie(String title, String ageGroup, String actor, String description, String rating) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.actor = actor;
