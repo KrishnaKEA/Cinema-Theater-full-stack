@@ -1,6 +1,7 @@
 package kodak.cinemaapp.entities.movie;
 
 import kodak.cinemaapp.DTOs.MovieDTO;
+import kodak.cinemaapp.exception.MovieNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,14 +25,11 @@ public class MovieService {
         return MovieDTO.movieToMovieDTO(movieRepo.findAll());
     }
 
-    public MovieDTO addMovie(MovieDTO newMovie) {
+    public MovieDTO addMovie(MovieDTO newMovie) throws MovieNotFoundException {
         Movie movieToShow = MovieDTO.movieDtoToMovie(newMovie);
         return new MovieDTO(movieRepo.save(movieToShow));
     }
 
-//    public List<MovieDTO> addMovies(List<MovieDTO> newMovies) {
-//
-//    }
 
 
     public MovieDTO getMovie(Long id) {

@@ -1,6 +1,7 @@
 package kodak.cinemaapp.entities.movie;
 
 import kodak.cinemaapp.DTOs.MovieDTO;
+import kodak.cinemaapp.exception.MovieNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,12 +24,13 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    MovieDTO getMovie(@PathVariable Long id) {
+    MovieDTO getMovie(@PathVariable Long id)
+    {
         return service.getMovie(id);
     }
 
     @PostMapping("/new")
-    MovieDTO addMovie(@RequestBody MovieDTO newMovie) {
+    MovieDTO addMovie(@RequestBody MovieDTO newMovie) throws MovieNotFoundException{
         return service.addMovie(newMovie);
     }
 
@@ -38,13 +40,12 @@ public class MovieController {
 //    }
 
     @PutMapping("/update/{id}")
-    MovieDTO editMovie(@RequestBody MovieDTO oldMovie,@PathVariable Long id ) throws Exception {
+    MovieDTO editMovie(@RequestBody MovieDTO oldMovie,@PathVariable Long id ) throws MovieNotFoundException {
         return service.editMovie(oldMovie,id);
     }
 
     @DeleteMapping("/delete/{id}")
     void deleteMovie(@PathVariable Long id){
         service.deleteMovie(id);
-
     }
 }
