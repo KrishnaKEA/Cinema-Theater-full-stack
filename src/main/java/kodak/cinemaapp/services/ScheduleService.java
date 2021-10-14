@@ -1,6 +1,7 @@
 package kodak.cinemaapp.services;
 
 import kodak.cinemaapp.dtos.ScheduleDTO;
+import kodak.cinemaapp.entities.Hall;
 import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.repositories.ScheduleRepository;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class ScheduleService {
         this.scheduleRepository = scheduleRepository;
     }
 
-    public List<ScheduleDTO> getSchedules(LocalDate date, String hall){
+    public List<ScheduleDTO> getSchedules(LocalDate date, Hall hall){
         if(date!=null){
             return ScheduleDTO.scheduleDTOSfromSchedule(scheduleRepository.findScheduleByDate(date));
         }if (hall!=null){
