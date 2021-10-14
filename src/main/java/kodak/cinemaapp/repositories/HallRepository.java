@@ -12,8 +12,6 @@ public interface HallRepository extends JpaRepository<Hall, Integer> {
     List<Hall> findAll();
     List<Hall> findHallsBySeatsX(int seatsX);
     List<Hall> findHallsBySeatsY(int seatsY);
-    List<Hall> findHallByNameAndSeatsX(String name, int seatsX);
-    List<Hall> findHallByNameAndSeatsY(String name, int seatsY);
     List<Hall> findHallByNameAndSeatsXAndSeatsY(String name, int seatsX, int seatsY);
 
 

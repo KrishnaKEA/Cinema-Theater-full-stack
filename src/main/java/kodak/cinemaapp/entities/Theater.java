@@ -12,6 +12,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "theaters")
 public class Theater {
 
     @Id
@@ -24,7 +25,7 @@ public class Theater {
     @Column
     String location;
 
-    @Column
+    @Column(name = "nr_of_halls")
     int nrOfHalls;
 
     @OneToMany(mappedBy = "theater")

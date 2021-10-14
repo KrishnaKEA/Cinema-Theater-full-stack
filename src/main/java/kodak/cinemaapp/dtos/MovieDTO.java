@@ -22,6 +22,13 @@ public class MovieDTO {
     String description;
     boolean rating;
 
+    public MovieDTO(String title, String ageGroup, String cast, String description) {
+        this.title = title;
+        this.ageGroup = ageGroup;
+        this.cast = cast;
+        this.description = description;
+    }
+
     public MovieDTO(String title, String ageGroup, String cast, String description, boolean rating) {
         this.title = title;
         this.ageGroup = ageGroup;

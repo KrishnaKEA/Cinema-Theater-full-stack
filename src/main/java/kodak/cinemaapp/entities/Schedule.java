@@ -12,17 +12,21 @@ import java.util.*;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "schedules")
 public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @Column(name="hall_id")
+    int hallId;
+
     @Column
     LocalDate date;
 
-    @ManyToOne // * -> 1
-    Hall hall;
+    /*@ManyToOne // * -> 1
+    Hall hall;*/
 
     @OneToMany // * -> 1
     List<Slot> slots = new ArrayList<>();
@@ -31,9 +35,9 @@ public class Schedule {
         this.date = date;
     }
 
-    public Schedule(LocalDate date, Hall hall, List<Slot> slots) {
+    public Schedule(LocalDate date, int hallId, List<Slot> slots) {
         this.date = date;
-        this.hall = hall;
+        this.hallId = hallId;
         this.slots = slots;
     }
 }

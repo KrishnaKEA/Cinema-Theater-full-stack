@@ -10,7 +10,7 @@ import java.util.List;
 public interface TheaterRepository extends JpaRepository<Theater, Integer> {
     List<Theater> findTheaterByName(String name);
     List<Theater> findTheaterByLocation(String location);
-    List<Theater> findTheaterByNameAndLocation(String name, String location);
+    // List<Theater> findTheaterByNameAndLocation(String name, String location);
     List<Theater> findTheaterByNrOfHalls(int nrOfHalls);
     List<Theater> findTheaterByNameAndLocationAndNrOfHalls(String name, String location, int nrOfHalls);
 }

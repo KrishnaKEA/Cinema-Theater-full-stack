@@ -30,7 +30,7 @@ public class TheaterService {
         return TheaterDTO.theaterDTOSfromTheater(theaterRepository.findAll());
     }
 
-    public TheaterDTO getTheather(int id){
+    public TheaterDTO getTheater(int id){
         Theater theater = theaterRepository.findById(id).orElseThrow();
         return new TheaterDTO(theater);
     }

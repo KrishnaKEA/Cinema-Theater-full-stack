@@ -17,7 +17,7 @@ public class HallController {
     }
 
     @GetMapping
-    List<HallDTO> getHalls(@RequestParam(required = false) String name, int x, int y){
+    List<HallDTO> getHalls(@RequestParam(required = false) String name,@RequestParam(required = false) int x,@RequestParam(required = false) int y){
         if (name==null && x == 0 && y == 0){
             throw new IllegalStateException();
         }

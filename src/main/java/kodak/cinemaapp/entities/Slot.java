@@ -10,6 +10,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "slots")
 public class Slot {
 
     public enum SlotTime{

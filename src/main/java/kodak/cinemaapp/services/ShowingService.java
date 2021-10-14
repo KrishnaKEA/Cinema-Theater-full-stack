@@ -33,7 +33,7 @@ public class ShowingService {
         return new ShowingDTO(showing);
     }
 
-    public ShowingDTO add(ShowingDTO newShowing){
+    public ShowingDTO addShowing(ShowingDTO newShowing){
         Showing showingToAdd = ShowingDTO.showingFromShowingDTO(newShowing);
         return new ShowingDTO(showingRepository.save(showingToAdd));
     }

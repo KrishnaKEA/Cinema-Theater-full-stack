@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface SlotRepository extends JpaRepository<Slot, Integer> {
-    List<Slot> findSlotById(int id);
+    List<Slot> findSlotBySlot(Slot.SlotTime slot);
 }

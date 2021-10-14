@@ -4,6 +4,7 @@ import kodak.cinemaapp.entities.*;
 import kodak.cinemaapp.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
@@ -30,11 +31,11 @@ public class DataSetup implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        hallRepository.save(new Hall("A", 26, 26, 26*26));
-        hallRepository.save(new Hall("B", 26, 26, 26*26));
-        hallRepository.save(new Hall("C", 26, 26, 26*26));
-        hallRepository.save(new Hall("D", 26, 26, 26*26));
-        hallRepository.save(new Hall("E", 26, 26, 26*26));
+        hallRepository.save(new Hall("A", 26, 26));
+        hallRepository.save(new Hall("B", 12, 14));
+        hallRepository.save(new Hall("C", 18, 22));
+        hallRepository.save(new Hall("D", 17, 13));
+        hallRepository.save(new Hall("E", 5, 5));
 
         movieRepository.save(new Movie("No Time to Die", "Teen", "Daniel Craig, Ana De Armas, Chris Evans", "Daniel Craigs' final outing as James Bond", true));
         movieRepository.save(new Movie("Movie 2", "Adult", "Someone you know, someone you used to know", "Description of a film you're looking at", true));
@@ -42,11 +43,11 @@ public class DataSetup implements CommandLineRunner {
         movieRepository.save(new Movie("Movie 4", "Adult", "Baby Shark", "Baby Shark grows up and becomes a drug lord", true));
         movieRepository.save(new Movie("Slow and the Accepting", "Adult", "Vin Diesel, Dwayne Johnson", "Vin and Dwayne finally settle down after their life of crime, racing and space hijacks and have a baby together", true));
 
-        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-01"), hallRepository.getById(0), slotRepository.findAll()));
-        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-02"), hallRepository.getById(1), slotRepository.findAll()));
-        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-03"), hallRepository.getById(2), slotRepository.findAll()));
-        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-04"), hallRepository.getById(3), slotRepository.findAll()));
-        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-05"), hallRepository.getById(4), slotRepository.findAll()));
+        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-01"), hallRepository.getById(0).getId(), slotRepository.findAll()));
+        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-02"), hallRepository.getById(1).getId(), slotRepository.findAll()));
+        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-03"), hallRepository.getById(2).getId(), slotRepository.findAll()));
+        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-04"), hallRepository.getById(3).getId(), slotRepository.findAll()));
+        scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-05"), hallRepository.getById(4).getId(), slotRepository.findAll()));
 
         slotRepository.save(new Slot(Slot.SlotTime.MORNING));
         slotRepository.save(new Slot(Slot.SlotTime.AFTERNOON));
@@ -70,7 +71,6 @@ public class DataSetup implements CommandLineRunner {
         userRepository.save(new User("Justas Zdanavicius", "JustaBoy@gmail.com", 5));
         userRepository.save(new User("Alex Condon", "Alexei@outback.com", 20));
         userRepository.save(new User("Ana Karina Caro Hoyos", "Ana@SofiaVergara.com", 26));
-
 
     }
 }

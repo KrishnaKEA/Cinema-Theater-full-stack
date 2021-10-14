@@ -12,6 +12,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "halls")
 public class Hall {
 
     @Id
@@ -27,20 +28,16 @@ public class Hall {
     @Column
     int seatsY;
 
-    @Column
-    int totalSeats = seatsX * seatsY;
-
     @OneToMany(mappedBy = "hall")
     List<Movie> movies = new ArrayList<>();
 
     @ManyToOne
     Theater theater;
 
-    public Hall(String name, int seatsX, int seatsY, int totalSeats) {
+    public Hall(String name, int seatsX, int seatsY) {
         this.name = name;
         this.seatsX = seatsX;
         this.seatsY = seatsY;
-        this.totalSeats = totalSeats;
     }
 
     @Override
@@ -48,11 +45,11 @@ public class Hall {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Hall hall = (Hall) o;
-        return id == hall.id && seatsX == hall.seatsX && seatsY == hall.seatsY && totalSeats == hall.totalSeats && Objects.equals(name, hall.name);
+        return id == hall.id && seatsX == hall.seatsX && seatsY == hall.seatsY && Objects.equals(name, hall.name) && Objects.equals(movies, hall.movies) && Objects.equals(theater, hall.theater);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, seatsX, seatsY, totalSeats);
+        return Objects.hash(id, name, seatsX, seatsY, movies, theater);
     }
 }

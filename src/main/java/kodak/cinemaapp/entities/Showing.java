@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "showings")
 public class Showing {
 
     @Id
@@ -22,7 +23,7 @@ public class Showing {
     @ManyToOne
     Movie movie;
 
-    @OneToOne
+    @ManyToOne
     Hall hall;
 
     @ManyToOne

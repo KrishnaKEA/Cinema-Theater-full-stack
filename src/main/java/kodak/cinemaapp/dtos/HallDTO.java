@@ -31,7 +31,6 @@ public class HallDTO {
         this.name = hall.getName();
         this.seatsX = hall.getSeatsX();
         this.seatsY = hall.getSeatsY();
-        this.totalSeats = hall.getTotalSeats();
         this.id = hall.getId();
     }
 
@@ -43,7 +42,7 @@ public class HallDTO {
     }
 
     public static Hall hallFromHallDTO(HallDTO hall){
-        return new Hall(hall.getName(), hall.getSeatsX(), hall.getSeatsY(), hall.getTotalSeats());
+        return new Hall(hall.getName(), hall.getSeatsX(), hall.getSeatsY());
     }
 
 }

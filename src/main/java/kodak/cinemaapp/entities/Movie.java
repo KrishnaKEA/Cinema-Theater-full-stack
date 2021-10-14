@@ -12,6 +12,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
+@Table (name = "movies")
 public class Movie {
 
     @Id

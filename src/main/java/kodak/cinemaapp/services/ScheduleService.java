@@ -4,6 +4,7 @@ import kodak.cinemaapp.dtos.ScheduleDTO;
 import kodak.cinemaapp.entities.Hall;
 import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.repositories.ScheduleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class ScheduleService {
         if(date!=null){
             return ScheduleDTO.scheduleDTOSfromSchedule(scheduleRepository.findScheduleByDate(date));
         }if (hall!=null){
-            return ScheduleDTO.scheduleDTOSfromSchedule(scheduleRepository.findScheduleByHall(hall));
+            return ScheduleDTO.scheduleDTOSfromSchedule(scheduleRepository.findScheduleByHallId(hall.getId()));
         }
         return ScheduleDTO.scheduleDTOSfromSchedule(scheduleRepository.findAll());
     }
