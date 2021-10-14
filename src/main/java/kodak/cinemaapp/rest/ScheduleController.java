@@ -6,6 +6,7 @@ import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.service.MovieService;
 import kodak.cinemaapp.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,25 @@ public class ScheduleController {
 
     @GetMapping
     public List<ScheduleDTO> getSchedules(){
-        return service.getAllSchedule();
+        return service.getAllSchedules();
     }
 
-    /*@GetMapping("/{date}")
-    public List<Schedule> getSchedulesOnDate(@PathVariable LocalDate date){
-        return service.getScheduleOnDate(date);
-    }*/
+    @GetMapping("/{date}")
+    public List<ScheduleDTO> getSchedulesByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date){
+
+        return service.getAllSchedulesByDate(date);
+    }
+    @GetMapping("/today")
+    public List<ScheduleDTO> getSchedulesForToday(){
+        return service.getAllSchedulesForToday();
+    }
+
+    @GetMapping("/week")
+    public List<ScheduleDTO> getSchedulesForAWeek(){
+        return service.getAllSchedulesForAWeek();
+    }
+
+
 
 
 }

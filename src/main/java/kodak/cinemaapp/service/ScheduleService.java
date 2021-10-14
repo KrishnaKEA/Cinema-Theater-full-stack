@@ -20,9 +20,26 @@ public class ScheduleService {
     }
 
 
-    public List<ScheduleDTO> getAllSchedule() {
+    public List<ScheduleDTO> getAllSchedules() {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findAll());
     }
+
+    public List<ScheduleDTO> getAllSchedulesByDate(LocalDate date) {
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(date));
+    }
+
+    public List<ScheduleDTO> getAllSchedulesForToday() {
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(LocalDate.now()));
+    }
+
+    public List<ScheduleDTO> getAllSchedulesForAWeek() {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = startDate.plusDays(7);
+
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateBetween(startDate, endDate));
+    }
+
+
 
     /*public List<Schedule> getSchedules() {
         List<Schedule> schedules = new ArrayList<>();
@@ -30,8 +47,6 @@ public class ScheduleService {
         return schedules;
     }*/
 
-   /* public List<Schedule> getScheduleOnDate(LocalDate date){
 
-    }*/
 
 }

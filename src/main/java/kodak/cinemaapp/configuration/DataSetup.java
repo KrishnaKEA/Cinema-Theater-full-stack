@@ -55,7 +55,14 @@ public class DataSetup implements CommandLineRunner {
         Movie m9 = movieRepository.save(new Movie("Title9","adults","Actor1, Actor2","description9","N/A"));
 
 
-        //LocalDate ld = LocalDate.now();
+        //LocalDate NOW
+        scheduleRepository.save(new Schedule(LocalDate.now(),h3,m6,s3));
+        //Testing "/schedule/week" api
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,22),h2,m9,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,23),h3,m7,s3));
+
+
+
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m1,s1));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m2,s2));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m3,s3));
