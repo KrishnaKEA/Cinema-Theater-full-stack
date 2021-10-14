@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
@@ -18,7 +19,7 @@ public class Schedule {
     int id;
 
     @Column
-    String date;
+    LocalDate date;
 
     @ManyToOne // * -> 1
     Hall hall;
@@ -26,7 +27,11 @@ public class Schedule {
     @OneToMany // * -> 1
     List<Slot> slots = new ArrayList<>();
 
-    public Schedule(String date, Hall hall, List<Slot> slots) {
+    public Schedule(LocalDate date) {
+        this.date = date;
+    }
+
+    public Schedule(LocalDate date, Hall hall, List<Slot> slots) {
         this.date = date;
         this.hall = hall;
         this.slots = slots;

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,9 +19,9 @@ import java.util.stream.StreamSupport;
 public class ScheduleDTO {
 
     int id;
-    Date date;
+    LocalDate date;
 
-    public ScheduleDTO(Date date) {
+    public ScheduleDTO(LocalDate date) {
         this.date = date;
     }
 
@@ -29,15 +30,15 @@ public class ScheduleDTO {
         this.id = schedule.getId();
     }
 
-    public static List<ScheduleDTO> movieDTOSfromMovie(Iterable<Schedule> schedules){
+    public static List<ScheduleDTO> scheduleDTOSfromSchedule(Iterable<Schedule> schedules){
         List<ScheduleDTO> dtos = StreamSupport.stream(schedules.spliterator(), false)
                 .map(schedule -> new ScheduleDTO(schedule))
                 .collect(Collectors.toList());
         return dtos;
     }
 
-    public static Movie movieFromMovieDTO(MovieDTO movie) {
-        return new Movie(movie.getTitle(), movie.getAgeGroup(), movie.getCast(), movie.description, movie.isRating());
+    public static Schedule scheduleFromScheduleDTO(ScheduleDTO schedule) {
+        return new Schedule(schedule.getDate());
     }
 
 }
