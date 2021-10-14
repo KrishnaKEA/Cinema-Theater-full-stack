@@ -7,7 +7,7 @@
 
 **Model:**
 
-```json
+```
 [
   {
     id: long, 
@@ -44,9 +44,11 @@ rating ❓
 
 **Responses:**
 
-200 successful operation
+code | description
+------------ | -------------
+200 | successful operation
+404| data not found
 
-404	data not found
 <br/><br/>
 
 <span style="background-color:blue">**GET** [/movies/{movieId}](http://localhost:8082/movies/1) get a specific movie by id
@@ -54,7 +56,7 @@ rating ❓
 
 **Model:**
 
-```json
+```
 {
   id: long,
   name: string,
@@ -80,11 +82,12 @@ rating ❓
 
 **Responses:**
 
-200 successful operation
+code | description
+------------ | -------------
+200 | successful operation
+400 | invalid movie id supplied
+404	| movie not found
 
-400	invalid movie id supplied
-
-404	movie not found
 <br/><br/>
 
 
@@ -97,7 +100,7 @@ body: movie object that needs to be added to the database
 
 **Model:**
 
-```json
+```
 {
   name: string,
   story: string,
@@ -119,9 +122,11 @@ body: movie object that needs to be added to the database
 
 **Responses:**
 
-201 successful operation
+code | description
+------------ | -------------
+201 | successful operation
+405 | invalid request body
 
-405 invalid request body
 <br/><br/>
 
 <span style="background-color:orange">**PUT** [/movies/update/{movieID}](http://localhost:8082/movies/update/99) update a specific movie by id
@@ -133,7 +138,7 @@ body: movie object that needs to be updated in the database
 
 **Model:**
 
-```json
+```
 {
   name: string,
   story: string,
@@ -153,13 +158,14 @@ body: movie object that needs to be updated in the database
 
 **Responses:**
 
-204 successful operation
+code | description
+------------ | -------------
+201 | successful operation
+400 |invalid movie id supplied
+404 | movie not found
+405 | invalid request body
 
-400	invalid movie id supplied
 
-404 movie not found
-
-405	invalid request body
 <br/><br/>
 
 <span style="background-color:red">**DELETE** [/movies/delete/{movieID}](http://localhost:8082/movies/delete/99) delete a specific movie by id
@@ -171,11 +177,12 @@ id: id of the movie that needs to be deleted
 
 **Responses:**
 
-204 successful operation
+code | description
+------------ | -------------
+201 | successful operation
+400 |invalid movie id supplied
+404 | movie not found
 
-400	invalid movie id supplied
-
-404 movie not found
 <hr>
 
 # SCHEDULE
@@ -189,7 +196,7 @@ date: a specific date for which to show the movie showings information
 
 **Model:**
 
-```json
+```
 [
   {
     id: long, 
@@ -218,11 +225,11 @@ Example value:
 ```
 **Responses:**
 
-200 successful operation
-
-400	invalid date supplied
-
-404	data not found
+code | description
+------------ | -------------
+201 | successful operation
+400 |invalid date supplied
+404 | data not found
 
 <br/><br/>
 
@@ -235,14 +242,14 @@ startingDate: a specific date as a starting date for the interval for which to s
 
 **Model:**
 
-```json
+```
 [
   {
-  id: long,
-  movie_id: integer,
-  date: string,
-  hall_id: integer,
-  slot_id: integer
+    id: long,
+    movie_id: integer,
+    date: string,
+    hall_id: integer,
+    slot_id: integer
   }
 ]
 ```
@@ -269,6 +276,14 @@ Example value:
   }
 ]
 ```
+**Responses:**
+
+code | description
+------------ | -------------
+201 | successful operation
+400 |invalid date supplied
+404 | data not found
+
 <hr>
 
 # **MODELS**
