@@ -1,7 +1,6 @@
 package kodak.cinemaapp.services;
 
 import kodak.cinemaapp.dtos.MovieDTO;
-import kodak.cinemaapp.dtos.TheaterDTO;
 import kodak.cinemaapp.entities.Movie;
 import kodak.cinemaapp.repositories.MovieRepository;
 import org.springframework.stereotype.Service;
@@ -18,17 +17,17 @@ public class MovieService {
     }
 
     public List<MovieDTO> getMovies(String title, String ageGroup, String cast, String description){
-        if(title!=null && ageGroup!=null && cast!=null && description!=null){
-            return MovieDTO.movieDTOSfromMovie(movieRepository.findMoviesBytitleandage;
-        }if(!=null){
-            return DTO.DTOSfrom(Repository.find);
+        if(title!=null){
+            return MovieDTO.movieDTOSfromMovie(movieRepository.findMoviesByTitle(title));
         }
-        if(!=null){
-            return DTO.DTOSfrom(Repository.find);
-        } if (){
-            return DTO.DTOSfrom(Repository.find);
+        if(ageGroup!=null){
+            return MovieDTO.movieDTOSfromMovie(movieRepository.findMoviesByAgeGroup(ageGroup));
+        } if (cast!=null){
+            return MovieDTO.movieDTOSfromMovie(movieRepository.findMoviesByCast(cast));
+        } if (description!=null){
+            return MovieDTO.movieDTOSfromMovie((movieRepository.findMoviesByDescription(description)));
         }
-        return DTO.DTOSfrom(Repository.findAll());
+        return MovieDTO.movieDTOSfromMovie(movieRepository.findAll());
     }
 
     public MovieDTO getMovie(int id){

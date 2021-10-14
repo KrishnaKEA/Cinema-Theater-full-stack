@@ -1,9 +1,7 @@
 package kodak.cinemaapp.services;
 
 import kodak.cinemaapp.dtos.TheaterDTO;
-import kodak.cinemaapp.dtos.UserDTO;
 import kodak.cinemaapp.entities.Theater;
-import kodak.cinemaapp.entities.User;
 import kodak.cinemaapp.repositories.TheaterRepository;
 import org.springframework.stereotype.Service;
 

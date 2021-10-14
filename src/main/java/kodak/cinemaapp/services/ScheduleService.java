@@ -1,7 +1,6 @@
 package kodak.cinemaapp.services;
 
 import kodak.cinemaapp.dtos.ScheduleDTO;
-import kodak.cinemaapp.dtos.TheaterDTO;
 import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.repositories.ScheduleRepository;
 import org.springframework.stereotype.Service;

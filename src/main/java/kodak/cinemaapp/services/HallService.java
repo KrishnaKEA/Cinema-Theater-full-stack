@@ -1,6 +1,8 @@
 package kodak.cinemaapp.services;
 
-import kodak.cinemaapp.dtos.TheaterDTO;
+import kodak.cinemaapp.dtos.HallDTO;
+
+import kodak.cinemaapp.entities.Hall;
 import kodak.cinemaapp.repositories.HallRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,39 +17,38 @@ public class HallService {
         this.hallRepository = hallRepository;
     }
 
-    public List<DTO> get(){
-        if(!=null && !=null && !=0){
-            return DTO.DTOSfrom(Repository.find);
-        }if(!=null){
-            return DTO.DTOSfrom(Repository.find);
+    public List<HallDTO> getHalls(String name, int seatsX, int seatsY){
+        if(name!=null && seatsX!=0 && seatsY!=0){
+            return HallDTO.hallDTOSfromHall(hallRepository.findHallByNameAndSeatsXAndSeatsY(name, seatsX, seatsY));
+        }if(name!=null){
+            return HallDTO.hallDTOSfromHall((hallRepository.findHallByName(name)));
+        }if(seatsX!=0){
+            return HallDTO.hallDTOSfromHall(hallRepository.findHallsBySeatsX(seatsX));
+        }if (seatsY!=0){
+            return HallDTO.hallDTOSfromHall(hallRepository.findHallsBySeatsY(seatsY));
         }
-        if(!=null){
-            return DTO.DTOSfrom(Repository.find);
-        } if (){
-            return DTO.DTOSfrom(Repository.find);
-        }
-        return DTO.DTOSfrom(Repository.findAll());
+        return HallDTO.hallDTOSfromHall(hallRepository.findAll());
     }
 
-    public DTO get(int id){
-         = Repository.findById(id).orElseThrow();
-        return new DTO();
+    public HallDTO gethall(int id){
+        Hall hall = hallRepository.findById(id).orElseThrow();
+        return new HallDTO(hall);
     }
 
-    public DTO add(TheaterDTO new){
-        ToAdd = DTO.FromTheaterDTO(new);
-        return new DTO(Repository.save(ToAdd));
+    public HallDTO addHall(HallDTO newHall){
+        Hall hallToAdd = HallDTO.hallFromHallDTO(newHall);
+        return new HallDTO(hallRepository.save(hallToAdd));
     }
 
-    public DTO edit(DTO Edit, int id){
-        Org = Repository.findById(id).orElseThrow();
-        Org.setName(theaterEdit.getName());
-        Org.setLocation(theaterEdit.getLocation());
-        Org.setNrOfHalls(theaterEdit.getNrOfHalls());
-        return new DTO(Repository.save(Org));
+    public HallDTO editHall(HallDTO hallToEdit, int id){
+        Hall hallOrg = hallRepository.findById(id).orElseThrow();
+        hallOrg.setName(hallToEdit.getName());
+        hallOrg.setSeatsX(hallToEdit.getSeatsX());
+        hallOrg.setSeatsY(hallToEdit.getSeatsY());
+        return new HallDTO(hallRepository.save(hallOrg));
     }
 
-    public void delete(int id){
-        Repository.deleteById(id);
+    public void deleteHall(int id){
+        hallRepository.deleteById(id);
     }
 }

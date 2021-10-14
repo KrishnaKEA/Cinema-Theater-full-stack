@@ -1,11 +1,7 @@
 package kodak.cinemaapp.services;
 
 import kodak.cinemaapp.dtos.ShowingDTO;
-import kodak.cinemaapp.dtos.TheaterDTO;
-import kodak.cinemaapp.entities.Hall;
-import kodak.cinemaapp.entities.Movie;
 import kodak.cinemaapp.entities.Showing;
-import kodak.cinemaapp.entities.Slot;
 import kodak.cinemaapp.repositories.ShowingRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +19,7 @@ public class ShowingService {
     public List<ShowingDTO> getShowings(String movie, String ageGroup, String slot){
         if(movie!=null){
             return ShowingDTO.showingDTOSfromShowing(showingRepository.findShowingsByMovieTitle(movie));
-        }if(hall!=null){
+        }if(ageGroup!=null){
             return ShowingDTO.showingDTOSfromShowing(showingRepository.findShowingsByMovieAgeGroup(ageGroup));
         }
         if(slot!=null){
