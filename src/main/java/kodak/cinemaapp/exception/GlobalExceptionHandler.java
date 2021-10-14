@@ -8,6 +8,9 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author omar
+ */
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

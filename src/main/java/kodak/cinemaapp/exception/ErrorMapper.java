@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+/**
+ * @author omar
+ */
+
+
 @Data @NoArgsConstructor
 public class ErrorMapper {
 
