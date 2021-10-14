@@ -52,8 +52,8 @@ public class Dataconfig implements CommandLineRunner {
 
 
 
-        Schedule schedule1 = scheduleRepository.save(new Schedule(movie1.getId(),movieHall1.getId(),slot1.getId(),LocalDate.parse("2021-10-12")));
-        Schedule schedule2 = scheduleRepository.save(new Schedule(movie2.getId(),movieHall1.getId(),slot2.getId(),LocalDate.parse("2021-10-12")));
+        Schedule schedule1 = scheduleRepository.save(new Schedule(1,movie1.getId(),movieHall1.getId(),slot1.getId(),LocalDate.parse("2021-10-12")));
+        Schedule schedule2 = scheduleRepository.save(new Schedule(2,movie2.getId(),movieHall1.getId(),slot2.getId(),LocalDate.parse("2021-10-12")));
 
     }
 }

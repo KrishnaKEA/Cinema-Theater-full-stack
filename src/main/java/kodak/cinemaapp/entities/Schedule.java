@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode
 @Entity
+@AllArgsConstructor
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

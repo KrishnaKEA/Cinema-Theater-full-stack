@@ -29,7 +29,7 @@ public class Movie {
         this.description = description;
         this.rating = rating;
     }
-    @OneToMany(mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
     List<User> Users = new ArrayList<>();
 
 

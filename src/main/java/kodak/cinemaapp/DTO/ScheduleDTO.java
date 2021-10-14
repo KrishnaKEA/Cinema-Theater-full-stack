@@ -5,7 +5,6 @@ import kodak.cinemaapp.entities.Schedule;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -31,6 +30,7 @@ public class ScheduleDTO {
         this.date = date;
     }
     public ScheduleDTO(Schedule schedule){
+        this.id = schedule.getId();
         this.movieId = schedule.getMovieId();
         this.hallId = schedule.getHallId();
         this.slotId = schedule.getSlotId();
@@ -47,6 +47,6 @@ public class ScheduleDTO {
         return sDTOs;
     }
     public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
-        return new Schedule(scheduleDTO.getMovieId(),scheduleDTO.getHallId(),scheduleDTO.getSlotId(),scheduleDTO.getDate());
+        return new Schedule(scheduleDTO.getId(),scheduleDTO.getMovieId(),scheduleDTO.getHallId(),scheduleDTO.getSlotId(),scheduleDTO.getDate());
     }
 }
