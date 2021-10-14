@@ -1,5 +1,5 @@
 # springboot-movies-rest-api
-Spring Boot REST API for other applications in our company.
+Spring Boot REST API for other applications in our company. (Bearing in mind that this branch mainly deal with Movies which was the task assigned as the 3rd API in the User Stories provided by PO)
 
 To replicate this back-end application in your local environment:
 
@@ -43,4 +43,6 @@ Although, Spring will throw its default one if one is not provided.
 Here we have made our Customer exception handling for movies namely 'MovieNotFoundException' which will return 'Timestamp (Date & time)', 'message (i.e. custom msg)' and 'path (uri)'.
 
 For testing, try with an id that does not exist in our database:  http://localhost:8082/api/movies/55 
+
+
 
