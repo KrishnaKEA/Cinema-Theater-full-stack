@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @Getter @Setter
@@ -16,16 +19,18 @@ public class Showing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @OneToOne
+    @ManyToOne
     Movie movie;
 
     @OneToOne
     Hall hall;
 
-    Slot.SlotTime slot;
+    @ManyToOne
+    Slot slot;
 
-    public Showing(Movie movie, Slot.SlotTime slot) {
+    public Showing(Movie movie, Hall hall, Slot slot) {
         this.movie = movie;
+        this.hall = hall;
         this.slot = slot;
     }
 }

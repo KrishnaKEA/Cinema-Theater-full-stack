@@ -17,12 +17,12 @@ public class MovieDTO {
 
     int id;
     String title;
-    int ageGroup;
+    String ageGroup;
     String cast;
     String description;
     boolean rating;
 
-    public MovieDTO(String title, int ageGroup, String cast, String description, boolean rating) {
+    public MovieDTO(String title, String ageGroup, String cast, String description, boolean rating) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.cast = cast;

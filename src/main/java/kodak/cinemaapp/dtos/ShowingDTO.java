@@ -20,18 +20,18 @@ public class ShowingDTO {
 
     int id;
     Movie movie;
-    Slot.SlotTime slotTime;
+    Slot slot;
     Hall hall;
 
-    public ShowingDTO(Movie movie, Slot.SlotTime slotTime, Hall hall) {
+    public ShowingDTO(Movie movie, Slot slot, Hall hall) {
         this.movie = movie;
-        this.slotTime = slotTime;
+        this.slot = slot;
         this.hall = hall;
     }
 
     public ShowingDTO(Showing showing) {
         this.movie = showing.getMovie();
-        this.slotTime = showing.getSlot();
+        this.slot = showing.getSlot();
         this.hall = showing.getHall();
         this.id = showing.getId();
     }
@@ -44,7 +44,7 @@ public class ShowingDTO {
     }
 
     public static Showing showingFromShowingDTO(ShowingDTO showing) {
-        return new Showing(showing.getMovie(), showing.getSlotTime());
+        return new Showing(showing.getMovie(),showing.getHall(), showing.getSlot());
     }
 
 }

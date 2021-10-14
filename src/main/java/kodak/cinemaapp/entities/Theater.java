@@ -36,6 +36,13 @@ public class Theater {
         this.nrOfHalls = nrOfHalls;
     }
 
+    public Theater(String name, String location, int nrOfHalls, List<Hall> halls) {
+        this.name = name;
+        this.location = location;
+        this.nrOfHalls = nrOfHalls;
+        this.halls = halls;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

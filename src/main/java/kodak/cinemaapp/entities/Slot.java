@@ -23,6 +23,9 @@ public class Slot {
     @Column
     SlotTime slot;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    Schedule schedule;
+
     public Slot(SlotTime slot) {
         this.slot = slot;
     }

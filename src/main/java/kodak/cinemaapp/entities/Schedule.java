@@ -5,8 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Entity
 @NoArgsConstructor
@@ -18,31 +18,17 @@ public class Schedule {
     int id;
 
     @Column
-    Date date;
-
-    public Schedule(Date date) {
-        this.date = date;
-    }
+    String date;
 
     @ManyToOne // * -> 1
     Hall hall;
 
-    @ManyToOne // * -> 1
-    Movie movie;
+    @OneToMany // * -> 1
+    List<Slot> slots = new ArrayList<>();
 
-    @ManyToOne // * -> 1
-    Slot slot;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Schedule schedule = (Schedule) o;
-        return id == schedule.id && Objects.equals(date, schedule.date);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, date);
+    public Schedule(String date, Hall hall, List<Slot> slots) {
+        this.date = date;
+        this.hall = hall;
+        this.slots = slots;
     }
 }

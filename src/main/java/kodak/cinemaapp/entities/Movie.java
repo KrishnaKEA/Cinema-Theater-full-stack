@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +22,7 @@ public class Movie {
     String title;
 
     @Column
-    int ageGroup;
+    String ageGroup;
 
     @Column
     String cast;
@@ -34,7 +36,10 @@ public class Movie {
     @ManyToOne
     Hall hall;
 
-    public Movie(String title, int ageGroup, String cast, String description, Boolean rating) {
+    @OneToMany(mappedBy = "movie")
+    List<Showing> showings = new ArrayList<>();
+
+    public Movie(String title, String ageGroup, String cast, String description, Boolean rating) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.cast = cast;
@@ -47,11 +52,11 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return id == movie.id && ageGroup == movie.ageGroup && Objects.equals(title, movie.title) && Objects.equals(cast, movie.cast) && Objects.equals(description, movie.description) && Objects.equals(rating, movie.rating);
+        return id == movie.id && rating == movie.rating && Objects.equals(title, movie.title) && Objects.equals(ageGroup, movie.ageGroup) && Objects.equals(cast, movie.cast) && Objects.equals(description, movie.description) && Objects.equals(hall, movie.hall);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, ageGroup, cast, description, rating);
+        return Objects.hash(id, title, ageGroup, cast, description, rating, hall);
     }
 }
