@@ -36,8 +36,7 @@ public class ScheduleService {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateBetween(startDate, endDate));
     }
 
-    public List<ScheduleDTO> getAllSchedulesV2(LocalDate startDate, Integer days) {
-
+    public List<ScheduleDTO> getAllSchedulesByAnyInterval(LocalDate startDate, Integer days) {
         LocalDate endDate = startDate.plusDays(days);
 
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateBetween(startDate, endDate));

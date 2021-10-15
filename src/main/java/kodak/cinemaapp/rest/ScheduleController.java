@@ -24,25 +24,30 @@ public class ScheduleController {
         return service.getAllSchedules();
     }
 
+
+    //Schedule for a specific date
     @GetMapping("/{date}")
     public List<ScheduleDTO> getSchedulesByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date){
 
         return service.getAllSchedulesByDate(date);
     }
+
+    //Schedule for today (checks current date)
     @GetMapping("/today")
     public List<ScheduleDTO> getSchedulesForToday(){
         return service.getAllSchedulesForToday();
     }
 
+    //Schedule for next 7 days with start date "today"
     @GetMapping("/week")
     public List<ScheduleDTO> getSchedulesForAWeek(){
         return service.getAllSchedulesForAWeek();
     }
 
+    //Any start day / + number of days
     @GetMapping("/{startDate}/{days}")
-    public List<ScheduleDTO> getSchedulesV2(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate, Integer days){
-
-        return service.getAllSchedulesV2(startDate, days);
+    public List<ScheduleDTO> getSchedulesV2(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate, @PathVariable Integer days){
+        return service.getAllSchedulesByAnyInterval(startDate, days);
     }
 
 
