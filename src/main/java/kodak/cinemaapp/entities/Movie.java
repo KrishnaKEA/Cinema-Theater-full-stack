@@ -32,7 +32,7 @@ public class Movie {
     String description;
 
     @Column
-    boolean rating;
+    String rating;
 
     @ManyToOne
     Hall hall;
@@ -40,7 +40,7 @@ public class Movie {
     @OneToMany(mappedBy = "movie")
     List<Showing> showings = new ArrayList<>();
 
-    public Movie(String title, String ageGroup, String cast, String description, Boolean rating) {
+    public Movie(String title, String ageGroup, String cast, String description, String rating) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.cast = cast;

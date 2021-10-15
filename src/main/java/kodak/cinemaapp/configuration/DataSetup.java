@@ -19,6 +19,7 @@ public class DataSetup implements CommandLineRunner {
     TheaterRepository theaterRepository;
     UserRepository userRepository;
 
+
     public DataSetup(HallRepository hallRepository, MovieRepository movieRepository, ScheduleRepository scheduleRepository, ShowingRepository showingRepository, SlotRepository slotRepository, TheaterRepository theaterRepository, UserRepository userRepository) {
         this.hallRepository = hallRepository;
         this.movieRepository = movieRepository;
@@ -37,11 +38,11 @@ public class DataSetup implements CommandLineRunner {
         hallRepository.save(new Hall("D", 17, 13));
         hallRepository.save(new Hall("E", 5, 5));
 
-        movieRepository.save(new Movie("No Time to Die", "Teen", "Daniel Craig, Ana De Armas, Chris Evans", "Daniel Craigs' final outing as James Bond", true));
-        movieRepository.save(new Movie("Movie 2", "Adult", "Someone you know, someone you used to know", "Description of a film you're looking at", true));
-        movieRepository.save(new Movie("Peppa Pig's excellent adventure","Children","Peppa Pig","Peppa Pig goes on a genocidal rampage", false));
-        movieRepository.save(new Movie("Movie 4", "Adult", "Baby Shark", "Baby Shark grows up and becomes a drug lord", true));
-        movieRepository.save(new Movie("Slow and the Accepting", "Adult", "Vin Diesel, Dwayne Johnson", "Vin and Dwayne finally settle down after their life of crime, racing and space hijacks and have a baby together", true));
+        movieRepository.save(new Movie("No Time to Die", "Teen", "Daniel Craig, Ana De Armas, Chris Evans", "Daniel Craigs' final outing as James Bond", "Good"));
+        movieRepository.save(new Movie("Movie 2", "Adult", "Someone you know, someone you used to know", "Description of a film you're looking at", "Bad"));
+        movieRepository.save(new Movie("Peppa Pig's excellent adventure","Children","Peppa Pig","Peppa Pig goes on a genocidal rampage", "Good"));
+        movieRepository.save(new Movie("Movie 4", "Adult", "Baby Shark", "Baby Shark grows up and becomes a drug lord", "Good"));
+        movieRepository.save(new Movie("Slow and the Accepting", "Adult", "Vin Diesel, Dwayne Johnson", "Vin and Dwayne finally settle down after their life of crime, racing and space hijacks and have a baby together", "Bad"));
 
         scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-01"), hallRepository.getById(0).getId(), slotRepository.findAll()));
         scheduleRepository.save(new Schedule(LocalDate.parse("2021-11-02"), hallRepository.getById(1).getId(), slotRepository.findAll()));

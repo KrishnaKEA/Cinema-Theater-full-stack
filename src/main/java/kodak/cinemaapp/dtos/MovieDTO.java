@@ -20,7 +20,7 @@ public class MovieDTO {
     String ageGroup;
     String cast;
     String description;
-    boolean rating;
+    String rating;
 
     public MovieDTO(String title, String ageGroup, String cast, String description) {
         this.title = title;
@@ -29,7 +29,7 @@ public class MovieDTO {
         this.description = description;
     }
 
-    public MovieDTO(String title, String ageGroup, String cast, String description, boolean rating) {
+    public MovieDTO(String title, String ageGroup, String cast, String description, String rating) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.cast = cast;
@@ -42,7 +42,7 @@ public class MovieDTO {
         this.ageGroup = movie.getAgeGroup();
         this.cast = movie.getCast();
         this.description = movie.getDescription();
-        this.rating = movie.isRating();
+        this.rating = movie.getRating();
         this.id = movie.getId();
     }
 
@@ -54,7 +54,7 @@ public class MovieDTO {
     }
 
     public static Movie movieFromMovieDTO(MovieDTO movie) {
-        return new Movie(movie.getTitle(), movie.getAgeGroup(), movie.getCast(), movie.description, movie.isRating());
+        return new Movie(movie.getTitle(), movie.getAgeGroup(), movie.getCast(), movie.description, movie.getRating());
     }
 
 }
