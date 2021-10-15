@@ -1,13 +1,10 @@
 package kodak.cinemaapp.service;
 
 import kodak.cinemaapp.dtos.ScheduleDTO;
-import kodak.cinemaapp.entities.Schedule;
-import kodak.cinemaapp.repo.MovieRepository;
 import kodak.cinemaapp.repo.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,6 +35,14 @@ public class ScheduleService {
 
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateBetween(startDate, endDate));
     }
+
+    public List<ScheduleDTO> getAllSchedulesV2(LocalDate startDate, Integer days) {
+
+        LocalDate endDate = startDate.plusDays(days);
+
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateBetween(startDate, endDate));
+    }
+
 
 
 

@@ -1,9 +1,6 @@
 package kodak.cinemaapp.rest;
 
-import kodak.cinemaapp.dtos.MovieDTO;
 import kodak.cinemaapp.dtos.ScheduleDTO;
-import kodak.cinemaapp.entities.Schedule;
-import kodak.cinemaapp.service.MovieService;
 import kodak.cinemaapp.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -40,6 +37,12 @@ public class ScheduleController {
     @GetMapping("/week")
     public List<ScheduleDTO> getSchedulesForAWeek(){
         return service.getAllSchedulesForAWeek();
+    }
+
+    @GetMapping("/{startDate}/{days}")
+    public List<ScheduleDTO> getSchedulesV2(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate, Integer days){
+
+        return service.getAllSchedulesV2(startDate, days);
     }
 
 

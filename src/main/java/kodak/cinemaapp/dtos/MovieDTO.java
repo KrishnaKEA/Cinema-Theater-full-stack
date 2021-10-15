@@ -13,20 +13,22 @@ import java.util.List;
 public class MovieDTO {
 
     private int id;
+    private String title;
     private String story;
     private String rating;
     private String actor;
 
     // Use this for incoming JSON
-    public MovieDTO(String story, String rating, String actor) {
+    public MovieDTO(String title, String story, String rating) {
+        this.title = title;
         this.story = story;
         this.rating = rating;
-        this.actor = actor;
+        //this.actor = actor;
     }
 
     public MovieDTO(Movie movie){
         this.story = movie.getStory();
-        this.actor = movie.getActor();
+        this.title= movie.getTitle();
         this.rating = movie.getRating();
         this.id = movie.getId();
     }
@@ -41,6 +43,6 @@ public class MovieDTO {
     }
 
     public static Movie movieDtoToMovie(MovieDTO movieDTO){
-        return new Movie(movieDTO.getStory(), movieDTO.getRating(), movieDTO.getActor() );
+        return new Movie(movieDTO.getTitle(),movieDTO.getStory(), movieDTO.getRating() );
     }
 }

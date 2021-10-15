@@ -34,7 +34,7 @@ public class Movie {
         this.story = story;
         this.rating = rating;
     }
-    public Movie(String story, String actor, String rating) {
+    public Movie(String title, String story,String rating) {
     }
 
     @OneToMany(mappedBy = "movie",fetch = FetchType.LAZY)
