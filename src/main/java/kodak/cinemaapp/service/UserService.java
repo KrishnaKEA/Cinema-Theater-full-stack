@@ -20,7 +20,7 @@ public class UserService {
     }
 
     public UserDTO getUser(int id) {
-        User user1 = userRepository.findById(id).orElseThrow();
+        User user1 = (User) userRepository.findById(id).orElseThrow();
         return new UserDTO(user1);
     }
 

@@ -23,7 +23,8 @@ public class UserDTO {
     Long phoneNumber;
     LocalDate birthDate;
 
-    public UserDTO(String fName, String lName, String email, Long phoneNumber, LocalDate birthDate) {
+    public UserDTO(int id,String fName, String lName, String email, Long phoneNumber, LocalDate birthDate) {
+        this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.email = email;

@@ -13,16 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping( "api/users")
+@RequestMapping( "/api/users")
 public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping
+    @GetMapping()
     public List<UserDTO> getAllUsers(){
         return userService.getAllUser();
     }
-    @GetMapping("/{ageGroup}")
+
+    @GetMapping("/{id}")
+    public UserDTO getUser(@PathVariable int id){
+       return userService.getUser(id);
+    }
+    @GetMapping("search/{ageGroup}")
     public List<UserDTO>getUserByAgeGroup(@PathVariable String ageGroup){
        return userService.getUserByAgegroup(ageGroup);
     }

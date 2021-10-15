@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/schedules")
+@RequestMapping("/api/schedules")
 public class ScheduleController {
     @Autowired
     ScheduleService scheduleService;

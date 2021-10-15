@@ -14,30 +14,30 @@ public class MovieController {
     MovieService movieService;
 
     @GetMapping
-    List<MovieDTO> getAllMovies(){
+    List<MovieDTO> getAllMovies() {
         return movieService.getAllMovies();
     }
 
-@GetMapping("/{id}")
-    MovieDTO getMovie(@PathVariable int id){
+    @GetMapping("/{id}")
+    MovieDTO getMovie(@PathVariable int id) {
         return movieService.getMovie(id);
-}
-@PostMapping
-    MovieDTO addMovie(@RequestBody MovieDTO movietoAdd){
+    }
+
+    @PostMapping()
+    MovieDTO addMovie(@RequestBody MovieDTO movietoAdd) {
         return movieService.addMovie(movietoAdd);
 
-}
-@PutMapping("/{id}")
-    MovieDTO movieDTO(@RequestBody MovieDTO movieToEdit,@PathVariable int id){
-        return movieService.editMovie(movieToEdit,id);
-}
-@DeleteMapping("/{id}")
-    void deletCar(@PathVariable int id){
+    }
+
+    @PutMapping("/{id}")
+    MovieDTO movieDTO(@RequestBody MovieDTO movieToEdit, @PathVariable int id) {
+        return movieService.editMovie(movieToEdit, id);
+    }
+
+    @DeleteMapping("/{id}")
+    void deletCar(@PathVariable int id) {
         movieService.deleteMovie(id);
-}
-
-
-
+    }
 
 
 }
