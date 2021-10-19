@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/slots")
+@RequestMapping("api/slots")
 public class SlotController {
 
     SlotService slotService;
