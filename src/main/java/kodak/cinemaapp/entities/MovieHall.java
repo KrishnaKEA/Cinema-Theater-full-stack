@@ -1,11 +1,11 @@
 package kodak.cinemaapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -26,4 +26,7 @@ public class MovieHall {
         this.seat = seat;
         this.showSlot = showSlot;
     }
+    @OneToMany(mappedBy = "movieHall",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Schedule> schedules = new ArrayList<>();
 }

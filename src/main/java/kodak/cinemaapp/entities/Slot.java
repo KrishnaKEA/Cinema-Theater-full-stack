@@ -1,11 +1,11 @@
 package kodak.cinemaapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +23,7 @@ public class Slot {
     public Slot(String name) {
         this.name = name;
     }
+    @OneToMany(mappedBy = "slot",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Schedule> schedules = new ArrayList<>();
 }

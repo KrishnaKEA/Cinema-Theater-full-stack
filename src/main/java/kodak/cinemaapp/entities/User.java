@@ -1,5 +1,6 @@
 package kodak.cinemaapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @Getter
@@ -32,7 +36,17 @@ public class User {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
+
     }
     @ManyToOne
     Movie movie;
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Booking> bookingList = new ArrayList<>();
+public void addBooking(Booking booking){
+    bookingList.add(booking);
+    booking.setUser(this);
+}
+
+
 }

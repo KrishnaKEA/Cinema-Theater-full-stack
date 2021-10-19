@@ -31,9 +31,9 @@ public class ScheduleDTO {
     }
     public ScheduleDTO(Schedule schedule){
         this.id = schedule.getId();
-        this.movieId = schedule.getMovieId();
+        this.movieId = schedule.getMovie_id();
         this.hallId = schedule.getHallId();
-        this.slotId = schedule.getSlotId();
+        this.slotId = schedule.getSlot_id();
         this.date = schedule.getDate();
 
     }
@@ -46,7 +46,10 @@ public class ScheduleDTO {
         }
         return sDTOs;
     }
+
     public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
         return new Schedule(scheduleDTO.getId(),scheduleDTO.getMovieId(),scheduleDTO.getHallId(),scheduleDTO.getSlotId(),scheduleDTO.getDate());
     }
+
+
 }

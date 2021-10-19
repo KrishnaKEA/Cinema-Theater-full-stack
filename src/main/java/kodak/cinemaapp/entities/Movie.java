@@ -1,5 +1,6 @@
 package kodak.cinemaapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,7 +39,9 @@ public class Movie {
         user.setMovie(this);
 
     }
-
+    @OneToMany(mappedBy = "movie",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Schedule> schedules = new ArrayList<>();
 
 
 

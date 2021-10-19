@@ -32,6 +32,7 @@ public class MovieDTO {
         this.title = movie.getTitle();
         this.ageGroup = movie.getAgeGroup();
         this.description = movie.getDescription();
+        this.actor = movie.getActor();
         this.rating = movie.getRating();
         this.id = movie.getId();
     }

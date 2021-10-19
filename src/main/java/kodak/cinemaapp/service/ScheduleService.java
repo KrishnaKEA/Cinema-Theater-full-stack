@@ -41,9 +41,9 @@ public class ScheduleService {
 
     public ScheduleDTO editSchedule(ScheduleDTO scheduletoEdit, int id) {
         Schedule scheduleOri = scheduleRepository.findById(id).orElseThrow();
-        scheduleOri.setMovieId(scheduletoEdit.getMovieId());
+        scheduleOri.setMovie_id(scheduletoEdit.getMovieId());
         scheduleOri.setHallId(scheduletoEdit.getHallId());
-        scheduleOri.setSlotId(scheduletoEdit.getSlotId());
+        scheduleOri.setSlot_id(scheduletoEdit.getSlotId());
         scheduleOri.setDate(scheduletoEdit.getDate());
         return new ScheduleDTO(scheduleRepository.save(scheduleOri));
     }
