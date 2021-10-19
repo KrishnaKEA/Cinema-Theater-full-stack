@@ -25,7 +25,7 @@ public class BookingService {
         Booking booking = bookingRepository.findById(id).orElseThrow();
         return new BookingDTO(booking);
     }
-    public BookingDTO addBoking(BookingDTO bookingToAdd){
+    public BookingDTO addBooking(BookingDTO bookingToAdd){
         Booking booTobeAdded = BookingDTO.bookingFromBookingDTO(bookingToAdd);
         return new BookingDTO (bookingRepository.save(booTobeAdded));
     }

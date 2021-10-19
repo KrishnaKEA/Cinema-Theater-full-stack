@@ -19,10 +19,10 @@ public class Dataconfig implements CommandLineRunner {
     SlotRepository slotRepository;
     UserRepository userRepository;
     BookingRepository bookingRepository;
-    @Autowired
-MovieHallService movieHallService;
+    BookingRepository1 bookingRepository1;
 
-    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository) {
+
+    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository,BookingRepository1 bookingRepository1) {
         this.movieRepository = movieRepository;
         this.movieHallRepository = movieHallRepository;
         this.movieTheaterRepository = movieTheaterRepository;
@@ -30,6 +30,7 @@ MovieHallService movieHallService;
         this.slotRepository = slotRepository;
         this.userRepository = userRepository;
         this.bookingRepository = bookingRepository;
+        this.bookingRepository1 = bookingRepository1;
     }
 
     @Override
@@ -38,7 +39,6 @@ MovieHallService movieHallService;
 
         MovieTheater movieTheater = movieTheaterRepository.save(new MovieTheater("Cinema CPH","Copenhagen", 3));
         MovieHall h1 = movieHallRepository.save(new MovieHall('A', 25, "morning" ));
-        movieHallService.populatateSeat(h1.getSeat());
         MovieHall h2 = movieHallRepository.save(new MovieHall('B', 36,"Afternoon"));
         MovieHall h3 = movieHallRepository.save(new MovieHall('C', 25, "Evening" ));
 
@@ -90,6 +90,11 @@ MovieHallService movieHallService;
         bookingRepository.save(new Booking(u1,sc1,sc1.getMovieHall().getSeat()));
         bookingRepository.save(new Booking(u1,sc2,sc2.getMovieHall().getSeat()));
         bookingRepository.save(new Booking(u2,sc2,sc2.getMovieHall().getSeat()));
+
+        bookingRepository1.save(new Booking1(u1.getId(),h1.getId(),LocalDate.of(2021,10,23),s1.getId(),m1.getId(),1));
+        bookingRepository1.save(new Booking1(u2.getId(),h1.getId(),LocalDate.of(2021,10,23),s2.getId(),m2.getId(),2));
+        bookingRepository1.save(new Booking1(u3.getId(),h2.getId(),LocalDate.of(2021,10,23),s1.getId(),m1.getId(),1));
+
 
 
 
