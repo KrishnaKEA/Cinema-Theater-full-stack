@@ -2,12 +2,13 @@ package kodak.cinemaapp.configuration;
 
 import kodak.cinemaapp.entities.*;
 import kodak.cinemaapp.repo.*;
-import kodak.cinemaapp.service.MovieHallService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Configuration
 public class Dataconfig implements CommandLineRunner {
@@ -36,6 +37,24 @@ public class Dataconfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+
+        RestTemplate template = new RestTemplate();
+        var url = "https://api.themoviedb.org/3/movie/top_rated?api_key=04db70555a543ca38f42b004ffad2941&language=en-US&fbclid=IwAR0S01mqvv4otFTRnllbk7dOffB81txxre-YTwGKVX2IwYUxyjWjzuxaCtc#";
+        ResponseEntity<MovieApiDTO> rs = template.getForEntity(url, MovieApiDTO.class);
+        MovieApiDTO md = rs.getBody();
+        List<MovieDetails> mlist = md.getMovieDetails();
+        //System.out.println(mlist.size());
+        //System.out.println(rs.getBody().getMovieDetails().get(0).getOverview());
+        for (int i =0; i<mlist.size();i++) {
+            System.out.println("ID:- "+mlist.get(i).getId());
+            System.out.println("Title:- "+mlist.get(i).getOriginal_title());
+            System.out.println("Description:- "+mlist.get(i).getOverview());
+            System.out.println("Poster path:- "+mlist.get(i).getPoster_path());
+            System.out.println("Ratings:- "+mlist.get(i).getVote_average());
+
+
+            System.out.println("-----------------------------------------------------------------------");
+        }
 
         MovieTheater movieTheater = movieTheaterRepository.save(new MovieTheater("Cinema CPH","Copenhagen", 3));
         MovieHall h1 = movieHallRepository.save(new MovieHall('A', 25, "morning" ));
