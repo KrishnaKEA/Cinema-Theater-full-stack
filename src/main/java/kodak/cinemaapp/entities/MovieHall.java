@@ -6,7 +6,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -20,15 +22,19 @@ public class MovieHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private char hallName;
-    private int seatsX;
-    private int seatsY;
+    private int seatCount;
 
-    public MovieHall(char hallName, int seatsX, int seatsY, MovieTheater movieTheater) {
+
+
+    public MovieHall(char hallName, int seatCount, MovieTheater movieTheater) {
         this.hallName = hallName;
-        this.seatsX = seatsX;
-        this.seatsY = seatsY;
+        this.seatCount = seatCount;
         this.movieTheater = movieTheater;
     }
+
+    @OneToMany(mappedBy = "movieHall",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Schedule> seats;
 
     @OneToMany(mappedBy = "movieHall",fetch = FetchType.LAZY)
     @JsonIgnore
@@ -37,5 +43,6 @@ public class MovieHall {
     // Hall* ---> 1 MovieTheater
     @ManyToOne
     MovieTheater movieTheater;
+
 
 }

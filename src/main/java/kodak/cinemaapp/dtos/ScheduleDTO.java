@@ -19,21 +19,38 @@ import java.util.List;
 public class ScheduleDTO {
 
     private int id;
-    private Movie movie;
-    private MovieHall hall;
-    private Slot slot;
     private LocalDate date;
 
+    private Movie movie;
+    private Slot slot;
+    private MovieHall movieHall;
+
+
+    // customized json output
+  /*  private String movieName;
+    private char hallName;
+    private String slotName;*/
+
+
+   /* public ScheduleDTO(Schedule schedule){
+        this.id = schedule.getId();
+        this.movieName = schedule.getMovie().getTitle();
+        this.hallName = schedule.getMovieHall().getHallName();
+        this.slotName = schedule.getSlot().getName();
+        this.date = schedule.getDate();
+
+    }*/
 
     public ScheduleDTO(Schedule schedule){
         this.id = schedule.getId();
         this.movie = schedule.getMovie();
-        this.hall = schedule.getMovieHall();
+        this.movieHall = schedule.getMovieHall();
         this.slot = schedule.getSlot();
         this.date = schedule.getDate();
 
     }
 
+
     public static List<ScheduleDTO> scheduleDTOSFromSchedule(Iterable<Schedule> schedules){
         List<ScheduleDTO> sDTOs = new ArrayList<>();
         for(Schedule sch: schedules){
@@ -42,46 +59,10 @@ public class ScheduleDTO {
         }
         return sDTOs;
     }
-    public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
-        return new Schedule(scheduleDTO.getId(),scheduleDTO.getDate(),scheduleDTO.getHall(),scheduleDTO.getMovie(),scheduleDTO.getSlot());
-    }
+    /*public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
+        return new Schedule(scheduleDTO.getDate(),scheduleDTO.getHallName(),scheduleDTO.getMovieName(),scheduleDTO.getSlotName());
+    }*/
 }
 
 
-//////////////
 
-/*public class ScheduleDTO {
-
-    private int id;
-    private String movie;
-    private char hall;
-    private String slot;
-    private LocalDate date;
-
-    public ScheduleDTO(LocalDate date, char hall, String movie, String slot) {
-        this.movie = movie;
-        this.hall = hall;
-        this.slot = slot;
-        this.date = date;
-    }
-    public ScheduleDTO(Schedule schedule){
-        this.id = schedule.getId();
-        this.movie = schedule.getMovie().getTitle();
-        this.hall = schedule.getMovieHall().getHallName();
-        this.slot = schedule.getSlot().getName();
-        this.date = schedule.getDate();
-
-    }
-
-    public static List<ScheduleDTO> scheduleDTOSFromSchedule(Iterable<Schedule> schedules){
-        List<ScheduleDTO> sDTOs = new ArrayList<>();
-        for(Schedule sch: schedules){
-            ScheduleDTO schD = new ScheduleDTO(sch);
-            sDTOs.add(schD);
-        }
-        return sDTOs;
-    }
-    public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
-        return new Schedule(scheduleDTO.getDate(),scheduleDTO.getHall(),scheduleDTO.getMovie(),scheduleDTO.getSlot());
-    }
-}*/

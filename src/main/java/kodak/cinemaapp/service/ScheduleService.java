@@ -1,6 +1,7 @@
 package kodak.cinemaapp.service;
 
 import kodak.cinemaapp.dtos.ScheduleDTO;
+import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.repo.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,11 @@ public class ScheduleService {
     public List<ScheduleDTO> getAllSchedules() {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findAll());
     }
+
+    public Schedule findScheduleById(int scheduleId){
+        return scheduleRepository.findScheduleById(scheduleId);
+    }
+
 
     public List<ScheduleDTO> getAllSchedulesByDate(LocalDate date) {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(date));

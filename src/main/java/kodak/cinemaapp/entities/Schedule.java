@@ -1,13 +1,14 @@
 package kodak.cinemaapp.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -41,4 +42,16 @@ public class Schedule {
     // Schedule* ---> 1 Slot
     @ManyToOne
     Slot slot;
+
+
+
+    @OneToMany(mappedBy = "schedule",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Booking> bookings = new ArrayList<>();
+
+    /*@OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Set<BookedSeat> bookedSeats;*/
+
+
 }

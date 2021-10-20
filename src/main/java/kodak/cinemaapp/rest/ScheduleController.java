@@ -1,6 +1,7 @@
 package kodak.cinemaapp.rest;
 
 import kodak.cinemaapp.dtos.ScheduleDTO;
+import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,6 +25,13 @@ public class ScheduleController {
         return service.getAllSchedules();
     }
 
+
+    @GetMapping("/findbyid/{scheduleId}")
+    public Schedule getScheduleById(@PathVariable int scheduleId){
+        System.out.println("text" +service.findScheduleById(scheduleId).getMovieHall().getId());
+        return service.findScheduleById(scheduleId);
+
+        }
 
     //Schedule for a specific date
     @GetMapping("/{date}")
