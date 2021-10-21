@@ -1,5 +1,6 @@
 package kodak.cinemaapp.rest;
 
+import com.fasterxml.jackson.databind.util.ArrayIterator;
 import kodak.cinemaapp.entities.*;
 import kodak.cinemaapp.service.BookedSeatService;
 import kodak.cinemaapp.service.BookingService;
@@ -8,7 +9,7 @@ import kodak.cinemaapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/bookings")
@@ -32,7 +33,6 @@ public class BookingController {
                                           @PathVariable int userId, @PathVariable int seatNr ) {
 
         Schedule schedule = bookingService.findScheduleByMovieMovieHallSlot(movieName, hallName, slotName); // later add elsethrow if not found
-        System.out.println(schedule.getId());
 
         User user = userService.findUserById(userId);
         Seat seat = seatService.findSeatBySeatNumberAndHallName(seatNr, hallName);
@@ -42,7 +42,7 @@ public class BookingController {
         if (!bookingService.bookingAlreadyExists(schedule, user) && bookedSeatService.isSeatFree(seatNr, hallName)) {
 
             Booking booking = bookingService.saveBooking(new Booking(user, schedule));
-            BookedSeat bookedSeat = bookedSeatService.saveBookedSeat(new BookedSeat(seat, booking));
+            bookedSeatService.saveBookedSeat(new BookedSeat(seat, booking));
             System.out.println("New booking created");
 
 
@@ -65,6 +65,27 @@ public class BookingController {
 
     }
 
+    @GetMapping("/bookedseats")
+    public Iterable<BookedSeat> findAllBookedSeats(){
+
+        return bookedSeatService.getAllBookedSeats();
+
+    }
+
+    @GetMapping("/freeseats")
+    public Iterable<Seat> findAllSeats_Free(){
+
+       List<Seat> onlyFreeSeats = new ArrayList<>();
+
+        Iterable<Seat> allSeats = seatService.getAllSeats();
+        for(Seat s: allSeats){
+            if(bookedSeatService.findBookedSeatBySeat_Id(s.getId()) == null)
+                onlyFreeSeats.add(s);
+
+        }
+
+        return onlyFreeSeats;
+    }
 
 
 }

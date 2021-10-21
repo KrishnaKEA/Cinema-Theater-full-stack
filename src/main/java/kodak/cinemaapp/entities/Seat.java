@@ -32,4 +32,8 @@ public class Seat {
         this.seatNumber = seatNumber;
         this.movieHall = movieHall;
     }
+
+
+
+
 }

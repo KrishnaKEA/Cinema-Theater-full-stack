@@ -2,6 +2,7 @@ package kodak.cinemaapp.configuration;
 
 import kodak.cinemaapp.entities.*;
 import kodak.cinemaapp.repo.*;
+import kodak.cinemaapp.service.SeatService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,7 +25,11 @@ public class DataSetup implements CommandLineRunner {
     SeatRepository seatRepository;
     BookedSeatRepository bookedSeatRepository;
 
-    public DataSetup(BookedSeatRepository bookedSeatRepository, BookingRepository bookingRepository, SeatRepository seatRepository, MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository, UserRepository userRepository) {
+
+    SeatService seatService;
+
+
+    public DataSetup(SeatService seatService, BookedSeatRepository bookedSeatRepository, BookingRepository bookingRepository, SeatRepository seatRepository, MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository, UserRepository userRepository) {
         this.seatRepository = seatRepository;
         this.bookingRepository = bookingRepository;
         this.movieRepository = movieRepository;
@@ -34,7 +39,10 @@ public class DataSetup implements CommandLineRunner {
         this.slotRepository = slotRepository;
         this.userRepository = userRepository;
         this.bookedSeatRepository = bookedSeatRepository;
+        this.seatService = seatService;
     }
+
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -45,11 +53,15 @@ public class DataSetup implements CommandLineRunner {
 
 
 
-        MovieHall h1 = movieHallRepository.save(new MovieHall('A' ,3, movieTheater ));
-        MovieHall h2 = movieHallRepository.save(new MovieHall('B',3, movieTheater ));
+        MovieHall h1 = movieHallRepository.save(new MovieHall('A' ,10, movieTheater ));
+        MovieHall h2 = movieHallRepository.save(new MovieHall('B',5, movieTheater ));
         MovieHall h3 = movieHallRepository.save(new MovieHall('C',3, movieTheater ));
 
-        Seat seat1 = seatRepository.save(new Seat(22,h1));
+        seatService.createSeats(h1);
+        seatService.createSeats(h2);
+        seatService.createSeats(h3);
+
+        /*Seat seat1 = seatRepository.save(new Seat(22,h1));
         Seat seat2 = seatRepository.save(new Seat(33,h1));
         Seat seat3 = seatRepository.save(new Seat(44,h1));
 
@@ -59,7 +71,7 @@ public class DataSetup implements CommandLineRunner {
 
         Seat seat7 = seatRepository.save(new Seat(22,h3));
         Seat seat8 = seatRepository.save(new Seat(33,h3));
-        Seat seat9 = seatRepository.save(new Seat(44,h3));
+        Seat seat9 = seatRepository.save(new Seat(44,h3));*/
 
 
         Slot s1 = slotRepository.save(new Slot("Morning"));
@@ -105,13 +117,10 @@ public class DataSetup implements CommandLineRunner {
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,3),h3,m4,s1));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,4),h1,m2,s2));
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,5),h2,m7,s3));
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,6),h3,m1,s1));
-
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,7),h1,m2,s2));
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,8),h1,m6,s3));
 
@@ -121,7 +130,7 @@ public class DataSetup implements CommandLineRunner {
 
 
 
-        Booking b1 = bookingRepository.save(new Booking(u1,sch1));
-        bookedSeatRepository.save(new BookedSeat(seat1, b1));
+       /* Booking b1 = bookingRepository.save(new Booking(u1,sch1));
+        bookedSeatRepository.save(new BookedSeat(seat1, b1));*/
     }
 }

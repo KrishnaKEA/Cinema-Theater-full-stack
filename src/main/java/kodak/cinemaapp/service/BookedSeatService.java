@@ -41,4 +41,12 @@ public class BookedSeatService {
     public BookedSeat saveBookedSeat(BookedSeat bookedSeat){
         return bookedSeatRepository.save(bookedSeat);
     }
+
+    public BookedSeat findBookedSeatBySeat_Id(int id){
+        return bookedSeatRepository.findBookedSeatBySeat_Id(id);
+    }
+
+    public Iterable<BookedSeat> getAllBookedSeats(){
+        return bookedSeatRepository.findAll();
+    }
 }

@@ -1,5 +1,6 @@
 package kodak.cinemaapp.service;
 
+import kodak.cinemaapp.entities.MovieHall;
 import kodak.cinemaapp.entities.Seat;
 import kodak.cinemaapp.repo.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,14 @@ import java.util.List;
 public class SeatService {
     @Autowired
     private SeatRepository seatRepository;
+
+
+    public void createSeats(MovieHall movieHall){
+        for(int i=1;i<=movieHall.getSeatCount();i++){
+            seatRepository.save(new Seat(i,movieHall));
+        }
+    }
+
 
     public SeatService(SeatRepository seatRepository) {
         this.seatRepository = seatRepository;
