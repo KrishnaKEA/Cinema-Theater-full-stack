@@ -1,6 +1,6 @@
 package kodak.cinemaapp.DTO;
 
-import kodak.cinemaapp.entities.Booking;
+//import kodak.cinemaapp.entities.Booking;
 import kodak.cinemaapp.entities.Slot;
 import lombok.*;
 

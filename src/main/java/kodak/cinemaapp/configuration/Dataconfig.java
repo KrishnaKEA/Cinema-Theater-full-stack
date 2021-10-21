@@ -20,19 +20,17 @@ public class Dataconfig implements CommandLineRunner {
     ScheduleRepository scheduleRepository;
     SlotRepository slotRepository;
     UserRepository userRepository;
-    BookingRepository bookingRepository;
     BookingRepository1 bookingRepository1;
     SeatRepository seatRepository;
 
 
-    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository,BookingRepository1 bookingRepository1,SeatRepository seatRepository) {
+    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository1 bookingRepository1,SeatRepository seatRepository) {
         this.movieRepository = movieRepository;
         this.movieHallRepository = movieHallRepository;
         this.movieTheaterRepository = movieTheaterRepository;
         this.scheduleRepository = scheduleRepository;
         this.slotRepository = slotRepository;
         this.userRepository = userRepository;
-        this.bookingRepository = bookingRepository;
         this.bookingRepository1 = bookingRepository1;
         this.seatRepository = seatRepository;
     }

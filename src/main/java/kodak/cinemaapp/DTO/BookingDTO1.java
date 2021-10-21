@@ -1,10 +1,7 @@
 package kodak.cinemaapp.DTO;
 
 import kodak.cinemaapp.entities.*;
-import kodak.cinemaapp.repo.BookingRepository;
-import kodak.cinemaapp.repo.BookingRepository1;
 import kodak.cinemaapp.repo.SeatRepository;
-import kodak.cinemaapp.service.BookingService1;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

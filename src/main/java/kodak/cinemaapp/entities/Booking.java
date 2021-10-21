@@ -1,3 +1,5 @@
+
+
 package kodak.cinemaapp.entities;
 
 import lombok.Getter;
