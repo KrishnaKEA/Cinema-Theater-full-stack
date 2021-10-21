@@ -37,8 +37,8 @@ public class Movie {
     public void addUser(User user){
         Users.add(user);
         user.setMovie(this);
-
     }
+
     @OneToMany(mappedBy = "movie",fetch = FetchType.LAZY)
     @JsonIgnore
     List<Schedule> schedules = new ArrayList<>();
