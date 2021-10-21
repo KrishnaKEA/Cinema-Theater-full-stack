@@ -8,6 +8,7 @@
 |Krishna|https://github.com/KrishnaKEA|
 |Omar|https://github.com/OmarExpo|
 
+
 ###Adrian
 Made an endpoint to let an authenticated USER get a list of free/booked seats for a given cinema hall, date and time
 
