@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -26,8 +27,9 @@ public class Schedule {
     private int hallId;
     @Column(length = 4,insertable = false,updatable = false)
     private int slot_id;
-
     private LocalDate date;
+    @OneToMany(mappedBy = "schedule")
+    private List<Seat> Seats = new ArrayList<>();
 
     public Schedule(int id,int movie_id, int hallIdΩ, int slot_id, LocalDate date) {
         this.id = id;

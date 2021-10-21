@@ -2,6 +2,7 @@ package kodak.cinemaapp.DTO;
 
 import kodak.cinemaapp.entities.Movie;
 import kodak.cinemaapp.entities.MovieHall;
+import kodak.cinemaapp.entities.Seat;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -16,18 +17,18 @@ import java.util.List;
 public class MovieHallDTO {
     private int id;
     private char hallName;
-    private int seat;
+    private List<Seat> seatList;
     private String showSlot;
 
-    public MovieHallDTO(char hallName, int seat, String showSlot) {
+    public MovieHallDTO(char hallName, List<Seat> seatList, String showSlot) {
         this.hallName = hallName;
-        this.seat = seat;
+        this.seatList = seatList;
         this.showSlot = showSlot;
     }
     public MovieHallDTO(MovieHall movieHall){
         this.id = movieHall.getId();
         this.hallName = movieHall.getHallName();
-        this.seat = movieHall.getSeat();
+        this.seatList = movieHall.getSeatList();
         this.showSlot = movieHall.getShowSlot();
     }
     public static List<MovieHallDTO> movieHallDTOSFromMovie(Iterable<MovieHall> movieHalls){
@@ -38,7 +39,10 @@ public class MovieHallDTO {
         }
         return mhDTOs;
     }
+
     public static MovieHall movieHallFromMovieHallDTO(MovieHallDTO movieHallDTO){
-        return new MovieHall(movieHallDTO.getHallName(),movieHallDTO.getSeat(),movieHallDTO.getShowSlot());
+        return new MovieHall(movieHallDTO.getHallName(),movieHallDTO.getSeatList(),movieHallDTO.getShowSlot());
     }
+
+
 }

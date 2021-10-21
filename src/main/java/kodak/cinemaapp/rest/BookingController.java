@@ -39,7 +39,7 @@ public class BookingController {
    }
 
 
-
+/*
 
    @PostMapping("/{id}/{date}/{hallId}/{movieId}/{slotId}/{seat}")
     public BookingDTO addBooking(@PathVariable("id") int id, @PathVariable("date") LocalDate date,@PathVariable("hallId") int hallId,@PathVariable("movieId") int movieId,@PathVariable("slotId") int slotId,@PathVariable("seat") int seat){
@@ -48,7 +48,7 @@ public class BookingController {
         if(bookingService.isvacant(id,date,hallId,movieId,slotId,seat)){
             User u = UserDTO.userFromUserDTO(userService.getUser(id));
             Movie m = MovieDTO.movieFromMovieDTO(movieService.getMovie(movieId));
-            MovieHall mh = MovieHallDTO.movieHallFromMovieHallDTO(movieHallService.getMoviehallDto(id));
+            //MovieHall mh = MovieHallDTO.movieHallFromMovieHallDTO(movieHallService.getMoviehallDto(id));
             Slot s = SlotDTO.slotFromSlotDTO(slotService.getSlot(id));
             Schedule schedule = new Schedule(date,mh,m,s);
             b.setSchedule(schedule);
@@ -57,6 +57,6 @@ public class BookingController {
         }
        return new BookingDTO(b);
    }
-
+*/
 
 }

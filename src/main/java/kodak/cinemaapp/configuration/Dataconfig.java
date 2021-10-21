@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -21,9 +22,10 @@ public class Dataconfig implements CommandLineRunner {
     UserRepository userRepository;
     BookingRepository bookingRepository;
     BookingRepository1 bookingRepository1;
+    SeatRepository seatRepository;
 
 
-    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository,BookingRepository1 bookingRepository1) {
+    public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository,BookingRepository1 bookingRepository1,SeatRepository seatRepository) {
         this.movieRepository = movieRepository;
         this.movieHallRepository = movieHallRepository;
         this.movieTheaterRepository = movieTheaterRepository;
@@ -32,6 +34,7 @@ public class Dataconfig implements CommandLineRunner {
         this.userRepository = userRepository;
         this.bookingRepository = bookingRepository;
         this.bookingRepository1 = bookingRepository1;
+        this.seatRepository = seatRepository;
     }
 
     @Override
@@ -57,9 +60,17 @@ public class Dataconfig implements CommandLineRunner {
         }
 
         MovieTheater movieTheater = movieTheaterRepository.save(new MovieTheater("Cinema CPH","Copenhagen", 3));
-        MovieHall h1 = movieHallRepository.save(new MovieHall('A', 25, "morning" ));
-        MovieHall h2 = movieHallRepository.save(new MovieHall('B', 36,"Afternoon"));
-        MovieHall h3 = movieHallRepository.save(new MovieHall('C', 25, "Evening" ));
+
+        MovieHall h1 = new MovieHall();
+        h1 = movieHallRepository.save(new MovieHall('A', h1.populateSeats(36), "morning" ));
+      List<Seat> seats1 = h1.getMySeatList();
+      for(Seat seat:seats1){
+          seatRepository.save(seat);
+      }
+        MovieHall h2 = new MovieHall();
+        h2 = movieHallRepository.save(new MovieHall('B', h2.populateSeats(64),"Afternoon"));
+        MovieHall h3 = new MovieHall();
+        h3 = movieHallRepository.save(new MovieHall('C', h3.populateSeats(81), "Evening" ));
 
         Slot s1 = slotRepository.save(new Slot("Morning"));
         Slot s2 = slotRepository.save(new Slot("Afternoon"));
@@ -106,13 +117,13 @@ public class Dataconfig implements CommandLineRunner {
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,10),h2,m8,s2));
 
 
-        bookingRepository.save(new Booking(u1,sc1,sc1.getMovieHall().getSeat()));
-        bookingRepository.save(new Booking(u1,sc2,sc2.getMovieHall().getSeat()));
-        bookingRepository.save(new Booking(u2,sc2,sc2.getMovieHall().getSeat()));
+       // bookingRepository.save(new Booking(u1,sc1,sc1.getMovieHall().getSeat()));
+        //bookingRepository.save(new Booking(u1,sc2,sc2.getMovieHall().getSeat()));
+       // bookingRepository.save(new Booking(u2,sc2,sc2.getMovieHall().getSeat()));
 
-        bookingRepository1.save(new Booking1(u1.getId(),h1.getId(),LocalDate.of(2021,10,23),s1.getId(),m1.getId(),1));
-        bookingRepository1.save(new Booking1(u2.getId(),h1.getId(),LocalDate.of(2021,10,23),s2.getId(),m2.getId(),2));
-        bookingRepository1.save(new Booking1(u3.getId(),h2.getId(),LocalDate.of(2021,10,23),s1.getId(),m1.getId(),1));
+
+        bookingRepository1.save(new Booking1(u1.getId(),h1.getId(),LocalDate.of(2021,10,22),s1.getId(),m1.getId(),h1.getMySeatList().get(0).getId()));
+
 
 
 
