@@ -20,7 +20,7 @@ public class Dataconfig implements CommandLineRunner {
     UserRepository userRepository;
     BookingRepository bookingRepository;
     @Autowired
-MovieHallService movieHallService;
+    MovieHallService movieHallService;
 
     public Dataconfig(MovieRepository movieRepository, MovieHallRepository movieHallRepository, MovieTheaterRepository movieTheaterRepository, ScheduleRepository scheduleRepository, SlotRepository slotRepository,UserRepository userRepository,BookingRepository bookingRepository) {
         this.movieRepository = movieRepository;
