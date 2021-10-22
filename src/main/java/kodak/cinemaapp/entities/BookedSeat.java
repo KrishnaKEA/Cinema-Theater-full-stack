@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,6 +19,10 @@ public class BookedSeat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
+    private LocalDate date;
+
+    private String timeSlot;
 
     @ManyToOne
     @JsonManagedReference
@@ -31,9 +36,12 @@ public class BookedSeat {
     @JsonManagedReference
     private Schedule schedule;*/
 
-    public BookedSeat(Seat seat, Booking booking) {
+    public BookedSeat(LocalDate date, String timeSlot, Seat seat, Booking booking) {
+        this.date = date;
+        this.timeSlot = timeSlot;
         this.seat = seat;
         this.booking = booking;
+
     }
 
 

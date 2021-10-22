@@ -97,26 +97,31 @@ public class DataSetup implements CommandLineRunner {
         //LocalDate NOW
         scheduleRepository.save(new Schedule(LocalDate.now(),h3,m6,s3));
         //Testing "/schedule/week" api
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,22),h2,m9,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,23),h3,m7,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,24),h2,m9,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,10,25),h3,m7,s3));
 
 
 
         Schedule sch1 = scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m1,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m2,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m3,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m4,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m5,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m6,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h3,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h2,m2,s3));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h3,m8,s2));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,1),h3,m9,s3));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h1,m2,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m9,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m2,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h3,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h3,m1,s1));
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,3),h3,m4,s1));
-
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,5),h2,m7,s3));
 

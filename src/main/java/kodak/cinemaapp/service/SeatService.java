@@ -25,8 +25,8 @@ public class SeatService {
         this.seatRepository = seatRepository;
     }
 
-    public Iterable<Seat> getAllSeats() {
-        return seatRepository.findAll();
+    public Iterable<Seat> getAllSeatsByHallName(char hallName) {
+        return seatRepository.findAllByMovieHall_HallName(hallName);
     }
 
     public Seat findSeatBySeatNumberAndHallName(int seatNr, char hallName){

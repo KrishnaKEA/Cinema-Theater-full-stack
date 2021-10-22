@@ -13,6 +13,7 @@ public interface ScheduleRepository extends CrudRepository<Schedule,Integer> {
     List<Schedule> findScheduleByDate(LocalDate date);
     List<Schedule> findScheduleByDateBetween(LocalDate startDate, LocalDate endDate);
     Schedule findScheduleById(int id);
-    Schedule findScheduleByMovie_TitleAndMovieHall_HallNameAndSlot_Name(String movie, char hallName, String slot);
+    Schedule findScheduleByDateAndMovie_TitleAndMovieHall_HallNameAndSlot_Name(LocalDate date, String movie, char hallName, String slot);
     Schedule findScheduleByMovieAndMovieHallAndSlot(Movie movie, MovieHall hall, Slot slot);
+
 }

@@ -28,7 +28,7 @@ public class Booking {
     private Schedule schedule;
 
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.MERGE)
     @JsonBackReference
     private Set<BookedSeat> bookedSeats;
 

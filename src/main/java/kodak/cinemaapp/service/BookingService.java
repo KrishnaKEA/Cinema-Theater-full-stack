@@ -5,6 +5,8 @@ import kodak.cinemaapp.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class BookingService {
 
@@ -30,8 +32,8 @@ public class BookingService {
 
 
 
-    public Schedule findScheduleByMovieMovieHallSlot(String movie, char movieHall, String slot){
-        return scheduleRepository.findScheduleByMovie_TitleAndMovieHall_HallNameAndSlot_Name(movie,movieHall,slot);
+    public Schedule findScheduleByDateMovieMovieHallSlot(LocalDate date, String movie, char movieHall, String slot){
+        return scheduleRepository.findScheduleByDateAndMovie_TitleAndMovieHall_HallNameAndSlot_Name(date,movie,movieHall,slot);
     }
 
     public boolean bookingAlreadyExists(Schedule schedule, User user){

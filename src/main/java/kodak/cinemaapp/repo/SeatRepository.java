@@ -12,5 +12,7 @@ import java.util.List;
 public interface SeatRepository extends CrudRepository<Seat,Integer> {
     List<Seat> findSeatsByMovieHallId(int id);
     Seat findSeatBySeatNumberAndMovieHall_HallName(int seatNr, char hallName);
+    List <Seat> findAllByMovieHall_HallName(char hallName);
+
 
 }

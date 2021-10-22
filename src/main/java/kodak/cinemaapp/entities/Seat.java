@@ -24,7 +24,7 @@ public class Seat {
     @ManyToOne
     private MovieHall movieHall;
 
-    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "seat", cascade = CascadeType.MERGE)
     @JsonBackReference
     private Set<BookedSeat> bookedSeats;
 
