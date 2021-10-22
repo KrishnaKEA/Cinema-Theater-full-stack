@@ -19,7 +19,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    MovieDTO getMovie(@PathVariable int id) {
+    MovieDTO getMovie(@PathVariable("id") int id) {
         return movieService.getMovie(id);
     }
 
@@ -35,7 +35,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
-    void deletCar(@PathVariable int id) {
+    void deletCar(@PathVariable("id") int id) {
         movieService.deleteMovie(id);
     }
 

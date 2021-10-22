@@ -22,12 +22,12 @@ public class ScheduleController {
     }
 
     @GetMapping("/{id},/{date}")
-    ScheduleDTO getScheduleforHall(@PathVariable int id, @PathVariable LocalDate date) {
+    ScheduleDTO getScheduleforHall(@PathVariable("id") int id, @PathVariable("date") LocalDate date) {
         return scheduleService.getScheduleByDateAndHall(id, date);
     }
 
     @GetMapping("/{hallID}")
-    List<ScheduleDTO> getScheduleForHallId(int hallId) {
+    List<ScheduleDTO> getScheduleForHallId(@PathVariable("hallID") int hallId) {
         return scheduleService.showScheduleforHallId(hallId);
     }
 
@@ -37,12 +37,12 @@ public class ScheduleController {
     }
 
     @PutMapping("/{id}")
-    ScheduleDTO editSchedule(@RequestBody ScheduleDTO scdDto, @PathVariable int id) {
+    ScheduleDTO editSchedule(@RequestBody ScheduleDTO scdDto, @PathVariable("id") int id) {
         return scheduleService.editSchedule(scdDto, id);
     }
 
     @DeleteMapping("/{id}")
-    void deleteSchedule(@PathVariable int id) {
+    void deleteSchedule(@PathVariable("id") int id) {
         scheduleService.deleteSchedule(id);
     }
 

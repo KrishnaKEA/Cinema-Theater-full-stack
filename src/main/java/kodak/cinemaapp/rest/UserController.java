@@ -24,11 +24,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserDTO getUser(@PathVariable int id){
+    public UserDTO getUser(@PathVariable("id") int id){
        return userService.getUser(id);
     }
     @GetMapping("search/{ageGroup}")
-    public List<UserDTO>getUserByAgeGroup(@PathVariable String ageGroup){
+    public List<UserDTO>getUserByAgeGroup(@PathVariable("ageGroup") String ageGroup){
        return userService.getUserByAgegroup(ageGroup);
     }
     @PostMapping
@@ -36,11 +36,11 @@ public class UserController {
         return userService.addUser(ud);
     }
     @PutMapping("/{id}")
-    public UserDTO editUser(@RequestBody UserDTO udEdit,@PathVariable int id){
+    public UserDTO editUser(@RequestBody UserDTO udEdit,@PathVariable("id") int id){
         return userService.editUser(udEdit,id);
     }
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable int id){
+    public void deleteUser(@PathVariable("id") int id){
         userService.deleteUser(id);
     }
 
