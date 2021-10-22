@@ -1,11 +1,15 @@
 package kodak.cinemaapp.service;
 
+<<<<<<< HEAD
 import kodak.cinemaapp.DTO.UserDTO;
+=======
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 import kodak.cinemaapp.entities.User;
 import kodak.cinemaapp.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -77,5 +81,19 @@ public class UserService {
 
     public void deleteUser(int id) {
         userRepository.deleteById(id);
+=======
+@Service
+public class UserService {
+
+    @Autowired
+    UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User findUserById(int userId){
+        return userRepository.findUserById(userId);
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
     }
 }

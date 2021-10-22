@@ -1,13 +1,24 @@
 package kodak.cinemaapp.rest;
 
+<<<<<<< HEAD
 import kodak.cinemaapp.DTO.MovieDTO;
 import kodak.cinemaapp.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+=======
+import kodak.cinemaapp.dtos.MovieDTO;
+import kodak.cinemaapp.service.MovieService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("api/movies")
 public class MovieController {
     @Autowired
@@ -40,4 +51,17 @@ public class MovieController {
     }
 
 
+=======
+@RequestMapping("/movies")
+public class MovieController {
+
+    @Autowired
+    private MovieService service;
+
+    @GetMapping
+    public List<MovieDTO> getMovies(){
+       return service.getMovies();
+    }
+
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 }

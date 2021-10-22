@@ -1,7 +1,10 @@
 package kodak.cinemaapp.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
+=======
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +18,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+<<<<<<< HEAD
 @AllArgsConstructor
+=======
+@Table(name = "user")
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +37,22 @@ public class User {
     private long phoneNumber;
     private LocalDate birthDate;
 
+<<<<<<< HEAD
+=======
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Booking> bookings = new ArrayList<>();
+
+
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
     public User(String fName, String lName, String email, long phoneNumber, LocalDate birthDate) {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
+<<<<<<< HEAD
 
     }
     @ManyToOne
@@ -48,5 +65,8 @@ public void addBooking(Booking booking){
     booking.setUser(this);
 }
 
+=======
+    }
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 
 }

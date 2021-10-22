@@ -1,15 +1,22 @@
 package kodak.cinemaapp.service;
 
+<<<<<<< HEAD
 import kodak.cinemaapp.DTO.MovieDTO;
 import kodak.cinemaapp.entities.Movie;
 import kodak.cinemaapp.repo.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+import kodak.cinemaapp.dtos.MovieDTO;
+import kodak.cinemaapp.entities.Movie;
+import kodak.cinemaapp.repo.MovieRepository;
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class MovieService {
+<<<<<<< HEAD
     @Autowired
     MovieRepository movieRepository;
     public List<MovieDTO> getAllMovies(){
@@ -42,3 +49,18 @@ public class MovieService {
         movieRepository.deleteById(id);
        }
 }
+=======
+
+    private final MovieRepository movieRepo;
+
+    public MovieService(MovieRepository movieRepo) {
+        this.movieRepo = movieRepo;
+    }
+
+    public List<MovieDTO> getMovies(){
+        Iterable<Movie> members = movieRepo.findAll();
+        return MovieDTO.movieToMovieDTO(members);
+    }
+
+}
+>>>>>>> 156a0cdd556eb42598e252abe799268ee73e92ed
