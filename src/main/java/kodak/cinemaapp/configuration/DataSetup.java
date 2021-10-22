@@ -119,7 +119,7 @@ public class DataSetup implements CommandLineRunner {
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m2,s2));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h2,m2,s3));
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h3,m1,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h3,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,11,2),h3,m1,s2));
 
         scheduleRepository.save(new Schedule(LocalDate.of(2021,11,3),h3,m4,s1));
 
