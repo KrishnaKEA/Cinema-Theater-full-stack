@@ -25,3 +25,29 @@ After Sprint review meeting , our team made a Sprint Retrospective meeting withi
 
 On Monday we have started the second sprint where product owner gave the new product backlog and and we again converted the product backlog to sprint backlog and gave the storipoints and asssign the work to differnt group member. 
 
+|  Name | gh  
+|---|---|
+|Adrian|https://github.com/adrian52x|
+|Dom|https://github.com/Sintry1|
+|Karo|https://github.com/shpomp|
+|Krishna|https://github.com/KrishnaKEA|
+|Omar|https://github.com/OmarExpo|
+
+
+### Adrian
+Made an endpoint to let an authenticated USER get a list of free/booked seats for a given cinema hall, date and time
+
+### Dom
+Made a description (or better implementation) of how you plan to get the “Movie Info”, demo a proof of concept for how to fetch movie data from an external source
+
+### Karo
+Attempted endpoint to let an authenticated USER edit a booking, sprint 2 documentation
+
+### Krishna
+Made endpoint to let an authenticated USER create a booking for seats for a specific movie, cinema hall and (start) time, made endpoint to let an authenticated USER cancel/edit a booking
+
+### Omar
+Completed missing parts from sprint1, Added link to image(s) to “Get Movie Info”
+
+
+
