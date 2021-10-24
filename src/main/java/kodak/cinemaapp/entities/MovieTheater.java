@@ -15,6 +15,8 @@ import java.util.List;
 @Setter
 @Table(name = "movie_theater")
 public class MovieTheater {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
