@@ -83,7 +83,7 @@ public class DataSetup implements CommandLineRunner {
 
 
 
-        Movie m1 = movieRepository.save(new Movie("Title1 new one","teens","Actor1, Actor2","description1 changed","N/A"));
+        Movie m1 = movieRepository.save(new Movie("Title1","teens","Actor1, Actor2","description1","N/A"));
         Movie m2 = movieRepository.save(new Movie("Title2","kids","Actor1, Actor2","description2","N/A"));
         Movie m3 = movieRepository.save(new Movie("Title3","kids","Actor1, Actor2","description3","N/A"));
         Movie m4 = movieRepository.save(new Movie("Title4","adults","Actor1, Actor2","description4","N/A"));
