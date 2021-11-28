@@ -39,15 +39,6 @@ public class BookedSeatDTO {
 
     }
 
-    public static List<ScheduleDTO> scheduleDTOSFromSchedule(Iterable<Schedule> schedules){
-        List<ScheduleDTO> sDTOs = new ArrayList<>();
-        for(Schedule sch: schedules){
-            ScheduleDTO schD = new ScheduleDTO(sch);
-            sDTOs.add(schD);
-        }
-        return sDTOs;
-    }
-
     public static List<BookedSeatDTO> bookedSeatDTOSFromBookedSeat(Iterable<BookedSeat> bookedSeats){
         List<BookedSeatDTO> bookedSeatDTOS = new ArrayList<>();
         for(BookedSeat bs : bookedSeats){

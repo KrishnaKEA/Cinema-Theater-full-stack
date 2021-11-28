@@ -1,5 +1,6 @@
 package kodak.cinemaapp.service;
 
+import kodak.cinemaapp.dtos.SeatDTO;
 import kodak.cinemaapp.entities.MovieHall;
 import kodak.cinemaapp.entities.Seat;
 import kodak.cinemaapp.repo.SeatRepository;
@@ -25,8 +26,8 @@ public class SeatService {
         this.seatRepository = seatRepository;
     }
 
-    public Iterable<Seat> getAllSeatsByHallName(char hallName) {
-        return seatRepository.findAllByMovieHall_HallName(hallName);
+    public Iterable<SeatDTO> getAllSeatsByHallName(char hallName) {
+        return SeatDTO.SeatDTOSFromSeat(seatRepository.findAllByMovieHall_HallName(hallName));
     }
 
     public Seat findSeatBySeatNumberAndHallName(int seatNr, char hallName){

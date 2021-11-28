@@ -22,7 +22,7 @@ public class ScheduleService {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findAll());
     }
 
-    public Schedule findScheduleById(int scheduleId){
+    public ScheduleDTO findScheduleById(int scheduleId){
         return scheduleRepository.findScheduleById(scheduleId);
     }
 

@@ -5,14 +5,12 @@ import kodak.cinemaapp.entities.Schedule;
 import kodak.cinemaapp.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/schedules")
 public class ScheduleController {
@@ -27,8 +25,8 @@ public class ScheduleController {
 
 
     @GetMapping("/findbyid/{scheduleId}")
-    public Schedule getScheduleById(@PathVariable int scheduleId){
-        System.out.println("text" +service.findScheduleById(scheduleId).getMovieHall().getId());
+    public ScheduleDTO getScheduleById(@PathVariable int scheduleId){
+
         return service.findScheduleById(scheduleId);
 
         }
