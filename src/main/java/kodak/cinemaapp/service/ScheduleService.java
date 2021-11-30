@@ -22,7 +22,7 @@ public class ScheduleService {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findAll());
     }
 
-    public Schedule findScheduleById(int scheduleId){
+    public ScheduleDTO findScheduleById(int scheduleId){
         return scheduleRepository.findScheduleById(scheduleId);
     }
 
@@ -30,6 +30,12 @@ public class ScheduleService {
     public List<ScheduleDTO> getAllSchedulesByDate(LocalDate date) {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(date));
     }
+
+    public List<ScheduleDTO> getAllSchedulesByDateSlotNameHallName(LocalDate date, String slot, char hallName) {
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateAndAndSlot_NameAndMovieHall_HallName(date,slot,hallName));
+    }
+
+
 
     public List<ScheduleDTO> getAllSchedulesForToday() {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(LocalDate.now()));

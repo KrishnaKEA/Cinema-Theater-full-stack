@@ -2,6 +2,7 @@ package kodak.cinemaapp.rest;
 
 import com.fasterxml.jackson.databind.util.ArrayIterator;
 import kodak.cinemaapp.dtos.BookedSeatDTO;
+import kodak.cinemaapp.dtos.SeatDTO;
 import kodak.cinemaapp.entities.*;
 import kodak.cinemaapp.service.BookedSeatService;
 import kodak.cinemaapp.service.BookingService;
@@ -88,12 +89,12 @@ public class BookingController {
     }
 
     @GetMapping("/freeseats/{date}/{hallName}/{timeSlot}")
-    public Iterable<Seat> findAllSeats_Free(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date,@PathVariable char hallName,@PathVariable String timeSlot){
+    public Iterable<SeatDTO> findAllSeats_Free(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date, @PathVariable char hallName, @PathVariable String timeSlot){
 
-       List<Seat> onlyFreeSeats = new ArrayList<>();
+       List<SeatDTO> onlyFreeSeats = new ArrayList<>();
 
-        Iterable<Seat> allSeats = seatService.getAllSeatsByHallName(hallName);
-        for(Seat s: allSeats){
+        Iterable<SeatDTO> allSeats = seatService.getAllSeatsByHallName(hallName);
+        for(SeatDTO s: allSeats){
             if(bookedSeatService.findBookedSeatBySeat_IdAndDateAndSlot(s.getId(),date,timeSlot) == null)
                 onlyFreeSeats.add(s);
 

@@ -21,34 +21,34 @@ public class ScheduleDTO {
     private int id;
     private LocalDate date;
 
-    private Movie movie;
+  /*  private Movie movie;
     private Slot slot;
-    private MovieHall movieHall;
+    private MovieHall movieHall;*/
 
 
     // customized json output
-  /*  private String movieName;
+    private String movieName;
     private char hallName;
-    private String slotName;*/
+    private String slotName;
 
 
-   /* public ScheduleDTO(Schedule schedule){
+    public ScheduleDTO(Schedule schedule){
         this.id = schedule.getId();
         this.movieName = schedule.getMovie().getTitle();
         this.hallName = schedule.getMovieHall().getHallName();
         this.slotName = schedule.getSlot().getName();
         this.date = schedule.getDate();
 
-    }*/
+    }
 
-    public ScheduleDTO(Schedule schedule){
+    /*public ScheduleDTO(Schedule schedule){
         this.id = schedule.getId();
         this.movie = schedule.getMovie();
         this.movieHall = schedule.getMovieHall();
         this.slot = schedule.getSlot();
         this.date = schedule.getDate();
 
-    }
+    }*/
 
 
     public static List<ScheduleDTO> scheduleDTOSFromSchedule(Iterable<Schedule> schedules){
@@ -59,8 +59,9 @@ public class ScheduleDTO {
         }
         return sDTOs;
     }
+
     /*public static Schedule scheduleFromScheduleDTO(ScheduleDTO scheduleDTO){
-        return new Schedule(scheduleDTO.getDate(),scheduleDTO.getHallName(),scheduleDTO.getMovieName(),scheduleDTO.getSlotName());
+        return new Schedule(scheduleDTO.getDate(),scheduleDTO.getHallId(),scheduleDTO.getMovieId(),scheduleDTO.getSlotId());
     }*/
 }
 
