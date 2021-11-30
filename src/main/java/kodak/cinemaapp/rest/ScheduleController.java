@@ -38,6 +38,15 @@ public class ScheduleController {
         return service.getAllSchedulesByDate(date);
     }
 
+    //Schedule for a specific date/time slot Name / Hall Name
+    @GetMapping("/{date}/{slot}/{hallName}")
+    public List<ScheduleDTO> getSchedulesByDateSlotHallName(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date, @PathVariable String slot, @PathVariable char hallName){
+
+        return service.getAllSchedulesByDateSlotNameHallName(date,slot,hallName);
+    }
+
+
+
     //Schedule for today (checks current date)
     @GetMapping("/today")
     public List<ScheduleDTO> getSchedulesForToday(){

@@ -27,16 +27,16 @@ public class ScheduleDTO {
 
 
     // customized json output
-    private int movieId;
-    private int hallId;
-    private int slotId;
+    private String movieName;
+    private char hallName;
+    private String slotName;
 
 
     public ScheduleDTO(Schedule schedule){
         this.id = schedule.getId();
-        this.movieId = schedule.getMovie().getId();
-        this.hallId = schedule.getMovieHall().getId();
-        this.slotId = schedule.getSlot().getId();
+        this.movieName = schedule.getMovie().getTitle();
+        this.hallName = schedule.getMovieHall().getHallName();
+        this.slotName = schedule.getSlot().getName();
         this.date = schedule.getDate();
 
     }

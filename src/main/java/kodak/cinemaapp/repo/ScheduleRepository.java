@@ -12,6 +12,7 @@ import java.util.List;
 
 public interface ScheduleRepository extends CrudRepository<Schedule,Integer> {
     List<Schedule> findScheduleByDate(LocalDate date);
+    List<Schedule> findScheduleByDateAndAndSlot_NameAndMovieHall_HallName(LocalDate date, String slot, char hallName);
     List<Schedule> findScheduleByDateBetween(LocalDate startDate, LocalDate endDate);
     ScheduleDTO findScheduleById(int id);
     Schedule findScheduleByDateAndMovie_TitleAndMovieHall_HallNameAndSlot_Name(LocalDate date, String movie, char hallName, String slot);

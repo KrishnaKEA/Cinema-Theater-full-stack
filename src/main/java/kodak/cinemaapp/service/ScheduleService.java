@@ -31,6 +31,12 @@ public class ScheduleService {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(date));
     }
 
+    public List<ScheduleDTO> getAllSchedulesByDateSlotNameHallName(LocalDate date, String slot, char hallName) {
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDateAndAndSlot_NameAndMovieHall_HallName(date,slot,hallName));
+    }
+
+
+
     public List<ScheduleDTO> getAllSchedulesForToday() {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleByDate(LocalDate.now()));
     }
