@@ -24,8 +24,8 @@ public class ScheduleController {
     }
 
 
-    @GetMapping("/findbyid/{scheduleId}")
-    public ScheduleDTO getScheduleById(@PathVariable int scheduleId){
+    @GetMapping("/find/{scheduleId}")
+    public List<ScheduleDTO> getScheduleById(@PathVariable int scheduleId){
 
         return service.findScheduleById(scheduleId);
 

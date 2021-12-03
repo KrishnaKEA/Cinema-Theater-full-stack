@@ -22,8 +22,9 @@ public class ScheduleService {
         return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findAll());
     }
 
-    public ScheduleDTO findScheduleById(int scheduleId){
-        return scheduleRepository.findScheduleById(scheduleId);
+    public List<ScheduleDTO> findScheduleById(int scheduleId){
+
+        return ScheduleDTO.scheduleDTOSFromSchedule(scheduleRepository.findScheduleById(scheduleId));
     }
 
 

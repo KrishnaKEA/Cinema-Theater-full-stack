@@ -4,10 +4,7 @@ import kodak.cinemaapp.dtos.MovieDTO;
 import kodak.cinemaapp.service.MovieService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,11 @@ public class MovieController {
     @GetMapping
     public List<MovieDTO> getMovies(){
        return service.getMovies();
+    }
+
+    @GetMapping("/{movieId}")
+    public List<MovieDTO> getMovieById(@PathVariable int movieId){
+        return service.getMovieById(movieId);
     }
 
 }

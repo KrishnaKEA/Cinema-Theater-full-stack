@@ -21,4 +21,8 @@ public class MovieService {
         return MovieDTO.movieToMovieDTO(members);
     }
 
+    public List<MovieDTO> getMovieById(int movieId){
+        return MovieDTO.movieToMovieDTO(movieRepo.findMovieById(movieId));
+    }
+
 }
