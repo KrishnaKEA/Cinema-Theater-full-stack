@@ -46,7 +46,7 @@ public class DataSetup implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       MovieTheater movieTheater = movieTheaterRepository.save(new MovieTheater("Cinema CPH","Copenhagen", 3));
+       MovieTheater movieTheater = movieTheaterRepository.save(new MovieTheater("Cinema-X","Holbæk", 3));
 
         User u1 = userRepository.save(new User("Adrian","Enachi","adrian52x@gmail.com", 81949992,LocalDate.of(1998,8,25)));
         User u2 = userRepository.save(new User("Mark","Rgz","gmail.com", 81949992,LocalDate.of(1997,5,12)));
@@ -81,12 +81,12 @@ public class DataSetup implements CommandLineRunner {
         String m1Desc = "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.";
         String m2Desc = "The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants.";
         String m3Desc = " Hugo er tolv år, og han tror stadig på nisser. Hans skolekammerater synes, han er barnlig, og han vælger derfor at bryde med sin bedste ven: nissen Pixy.";
-        String m4Desc = "When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel the family legacy and triggers a reckless spiral of betrayal, decadence, revenge -- and ultimately murder.";
-        String m5Desc = "James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond on the trail of a mysterious villain who's armed with a dangerous new technology.";
+        String m4Desc = "When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel the family legacy and triggers a reckless spiral of betrayal...";
+        String m5Desc = "James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help.";
         String m6Desc = "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.";
         String m7Desc = "When a single mother and her two children move to a new town, they soon discover they have a connection to the original Ghostbusters and the secret legacy their grandfather left behind.";
         String m8Desc = "Follow Alex and the Checkered Ninja who embark on a frantic hunt for the villain Phillip Eppermint, who has evaded a prison sentence in Thailand.";
-        String m9Desc = "Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote, Brock and Venom must put aside their differences to stop his reign of terror.";
+        String m9Desc = "Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote...";
 
 
 
