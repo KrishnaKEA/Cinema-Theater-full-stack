@@ -103,41 +103,82 @@ public class DataSetup implements CommandLineRunner {
 
         // MAX 9 schedules per DAY ( 1day x 3slots x 3movieHalls = 9 )
         // 8 for this day
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h1,m1,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h1,m1,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h1,m1,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h2,m3,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h2,m5,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h2,m4,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h3,m1,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,1),h3,m8,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h1,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h2,m3,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h2,m5,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h3,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,4),h3,m8,s2));
 
-        // 7 for this day
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h1,m1,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h1,m1,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h2,m1,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h2,m2,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h2,m4,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h3,m7,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,2),h3,m8,s2));
-
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h3,m4,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h3,m6,s3));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h3,m7,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h1,m9,s1));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h2,m1,s2));
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,3),h1,m3,s3));
+        // 8 for this day
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h3,m8,s2));
 
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,5),h2,m7,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h3,m8,s2));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,6),h3,m1,s1));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h1,m6,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,7),h3,m8,s2));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h3,m9,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,8),h3,m8,s2));
 
-        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h2,m8,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,9),h3,m8,s2));
+
+
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,10),h3,m8,s2));
+
+
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h1,m9,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h1,m1,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h1,m1,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h2,m1,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h2,m2,s2));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h2,m4,s3));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h3,m7,s1));
+        scheduleRepository.save(new Schedule(LocalDate.of(2021,12,11),h3,m8,s2));
 
 
 
