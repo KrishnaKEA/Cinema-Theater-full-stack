@@ -78,20 +78,27 @@ public class DataSetup implements CommandLineRunner {
         Slot s2 = slotRepository.save(new Slot("Afternoon"));
         Slot s3 = slotRepository.save(new Slot("Evening"));
 
+        String m1Desc = "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.";
+        String m2Desc = "The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants.";
+        String m3Desc = " Hugo er tolv år, og han tror stadig på nisser. Hans skolekammerater synes, han er barnlig, og han vælger derfor at bryde med sin bedste ven: nissen Pixy.";
+        String m4Desc = "When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel the family legacy and triggers a reckless spiral of betrayal, decadence, revenge -- and ultimately murder.";
+        String m5Desc = "James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond on the trail of a mysterious villain who's armed with a dangerous new technology.";
+        String m6Desc = "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.";
+        String m7Desc = "When a single mother and her two children move to a new town, they soon discover they have a connection to the original Ghostbusters and the secret legacy their grandfather left behind.";
+        String m8Desc = "Follow Alex and the Checkered Ninja who embark on a frantic hunt for the villain Phillip Eppermint, who has evaded a prison sentence in Thailand.";
+        String m9Desc = "Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote, Brock and Venom must put aside their differences to stop his reign of terror.";
 
 
 
-
-
-        Movie m1 = movieRepository.save(new Movie("MATRIX","teens","Actor1, Actor2","description1","N/A"));
-        Movie m2 = movieRepository.save(new Movie("ETERNALS","teens","Actor1, Actor2","description2","N/A"));
-        Movie m3 = movieRepository.save(new Movie("Familien JUL og NISSEHOTELLET","kids","Actor1, Actor2","description3","N/A"));
-        Movie m4 = movieRepository.save(new Movie("HOUSE of GUCCI","adults","Actor1, Actor2","description4","N/A"));
-        Movie m5 = movieRepository.save(new Movie("NO TIME TO DIE","adults","Actor1, Actor2","description5","N/A"));
-        Movie m6 = movieRepository.save(new Movie("HARRY POTTER","teens","Actor1, Actor2","description6","N/A"));
-        Movie m7 = movieRepository.save(new Movie("GHOSTBUSTERS","kids","Actor1, Actor2","description7","N/A"));
-        Movie m8 = movieRepository.save(new Movie("TERNET NINJA 2","kids","Actor1, Actor2","description8","N/A"));
-        Movie m9 = movieRepository.save(new Movie("VENOM","adults","Actor1, Actor2","description9","N/A"));
+        Movie m1 = movieRepository.save(new Movie("MATRIX","teens","Actor1, Actor2",m1Desc,"9/10"));
+        Movie m2 = movieRepository.save(new Movie("ETERNALS","teens","Actor1, Actor2",m2Desc,"8/10"));
+        Movie m3 = movieRepository.save(new Movie("FAMILIEN JUL OG NISSEHOTELLET","kids","Actor1, Actor2",m3Desc,"8/10"));
+        Movie m4 = movieRepository.save(new Movie("HOUSE of GUCCI","adults","Actor1, Actor2",m4Desc,"7/10"));
+        Movie m5 = movieRepository.save(new Movie("NO TIME TO DIE","adults","Actor1, Actor2",m5Desc,"10/10"));
+        Movie m6 = movieRepository.save(new Movie("HARRY POTTER","teens","Actor1, Actor2",m6Desc,"7/10"));
+        Movie m7 = movieRepository.save(new Movie("GHOSTBUSTERS","kids","Actor1, Actor2",m7Desc,"6/10"));
+        Movie m8 = movieRepository.save(new Movie("TERNET NINJA 2","kids","Actor1, Actor2",m8Desc,"7/10"));
+        Movie m9 = movieRepository.save(new Movie("VENOM","adults","Actor1, Actor2",m9Desc,"8/10"));
 
 
         //LocalDate NOW
