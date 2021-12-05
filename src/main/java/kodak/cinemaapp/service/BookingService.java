@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class BookingService {
@@ -24,6 +25,8 @@ public class BookingService {
         this.scheduleRepository = scheduleRepository;
         this.bookingRepository = bookingRepository;
     }
+
+
 
 
     public Booking findBookingByScheduleAndUser(Schedule schedule,User user){
