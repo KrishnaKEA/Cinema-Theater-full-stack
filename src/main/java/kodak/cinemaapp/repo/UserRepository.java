@@ -10,6 +10,7 @@ import java.time.LocalDate;
 public interface UserRepository extends CrudRepository<User,Integer> {
     User findUserById(int id);
     User save(User user);
+    User findUserByEmail(String email);
 }
 
 
