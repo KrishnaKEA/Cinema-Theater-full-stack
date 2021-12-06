@@ -53,9 +53,9 @@ public class DataSetup implements CommandLineRunner {
 
 
 
-        MovieHall h1 = movieHallRepository.save(new MovieHall('A' ,10, movieTheater ));
-        MovieHall h2 = movieHallRepository.save(new MovieHall('B',10, movieTheater ));
-        MovieHall h3 = movieHallRepository.save(new MovieHall('C',10, movieTheater ));
+        MovieHall h1 = movieHallRepository.save(new MovieHall('A' ,16, movieTheater ));
+        MovieHall h2 = movieHallRepository.save(new MovieHall('B',16, movieTheater ));
+        MovieHall h3 = movieHallRepository.save(new MovieHall('C',16, movieTheater ));
 
         seatService.createSeats(h1);
         seatService.createSeats(h2);
