@@ -17,8 +17,8 @@ public class MovieService {
     }
 
     public List<MovieDTO> getMovies(){
-        Iterable<Movie> members = movieRepo.findAll();
-        return MovieDTO.movieToMovieDTO(members);
+        Iterable<Movie> movies = movieRepo.findAll();
+        return MovieDTO.movieToMovieDTO(movies);
     }
 
     public List<MovieDTO> getMovieById(int movieId){
