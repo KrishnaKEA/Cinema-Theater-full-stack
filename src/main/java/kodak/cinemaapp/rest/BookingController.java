@@ -54,7 +54,7 @@ public class BookingController {
 
         // User already has a booking for this schedule && Seat is free OR booked
         else if (bookingService.bookingAlreadyExists(schedule, user) && !bookedSeatService.isSeatFree(seatNr, hallName,schedule.getDate(),schedule.getSlot().getName()) || bookedSeatService.isSeatFree(seatNr, hallName,schedule.getDate(),schedule.getSlot().getName())) {
-            System.out.println("This User: " + user.getFName() + " already have a booking for this Schedule ");
+            System.out.println("This User: " + user.getFirstName() + " already have a booking for this Schedule ");
         }
         //No booking but Seat is not free
         else if (!bookingService.bookingAlreadyExists(schedule, user) && !bookedSeatService.isSeatFree(seatNr, hallName,schedule.getDate(),schedule.getSlot().getName())) {

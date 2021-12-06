@@ -5,6 +5,8 @@ import kodak.cinemaapp.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class UserService {
 
@@ -17,5 +19,10 @@ public class UserService {
 
     public User findUserById(int userId){
         return userRepository.findUserById(userId);
+    }
+
+
+    public User saveUser(User user){
+        return userRepository.save(user);
     }
 }
