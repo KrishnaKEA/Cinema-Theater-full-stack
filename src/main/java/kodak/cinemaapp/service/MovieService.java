@@ -16,6 +16,9 @@ public class MovieService {
         this.movieRepo = movieRepo;
     }
 
+
+    public Movie saveMovie(Movie movie){ return movieRepo.save(movie); }
+
     public List<MovieDTO> getMovies(){
         Iterable<Movie> movies = movieRepo.findAll();
         return MovieDTO.movieToMovieDTO(movies);
