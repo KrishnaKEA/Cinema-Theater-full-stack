@@ -15,21 +15,21 @@ public class MovieDTO {
     private int id;
     private String title;
     private String story;
-    private String rating;
-    private String actor;
+    private String posterLink;
+
 
     // Use this for incoming JSON
-    public MovieDTO(String title, String story, String rating) {
+    public MovieDTO(String title, String story, String posterLink) {
         this.title = title;
         this.story = story;
-        this.rating = rating;
-        //this.actor = actor;
+        this.posterLink = posterLink;
+
     }
 
     public MovieDTO(Movie movie){
         this.story = movie.getStory();
         this.title= movie.getTitle();
-        this.rating = movie.getRating();
+        this.posterLink = movie.getPosterLink();
         this.id = movie.getId();
     }
 
@@ -43,6 +43,6 @@ public class MovieDTO {
     }
 
     public static Movie movieDtoToMovie(MovieDTO movieDTO){
-        return new Movie(movieDTO.getTitle(),movieDTO.getStory(), movieDTO.getRating() );
+        return new Movie(movieDTO.getTitle(),movieDTO.getStory(), movieDTO.getPosterLink() );
     }
 }

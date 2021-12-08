@@ -26,13 +26,15 @@ public class Movie {
     private String actor;
     private String story;
     private String rating;
+    private String posterLink;
 
-    public Movie(String title, String ageGroup, String actor, String story, String rating) {
+    public Movie(String title, String ageGroup, String actor, String story, String rating, String posterLink) {
         this.title = title;
         this.ageGroup = ageGroup;
         this.actor = actor;
         this.story = story;
         this.rating = rating;
+        this.posterLink = posterLink;
     }
     public Movie(String title, String story,String rating) {
     }
