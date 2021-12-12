@@ -26,3 +26,29 @@ Made endpoint to let an authenticated USER create a booking for seats for a spec
 Completed missing parts from sprint1, Added link to image(s) to “Get Movie Info”
 
 
+ENDPOINTS Documentation
+
+
+http://3.90.205.148/users/{email} [find user by emal]
+http://3.90.205.148/users/all [all users]
+http://3.90.205.148/users/adduser [POST]
+
+http://3.90.205.148/movies [all movies]
+http://3.90.205.148/movies/{id} [movie by id]
+http://3.90.205.148/movies/addmovie [POST]
+
+http://3.90.205.148/schedules [all schedules]
+http://3.90.205.148/schedules/find/{id} [schedule by id]
+http://3.90.205.148/schedules/today [today's schedules]
+http://3.90.205.148/schedules/week [schedules for 1 week starting from 'today']
+http://3.90.205.148/schedules/{date} [schedules for a specific date (yyyy-MM-dd format)]
+http://3.90.205.148/schedules/{date}/{timeSlot}/{hall}  [find unique schedule by date, timeSlot (Morning,Afternonn,Evening) and hall (A,B,C)]
+
+http://3.90.205.148/bookings/bookedseats [all booked seats]
+http://3.90.205.148/bookings/bookedseats/{date} [all booked seats by date]
+http://3.90.205.148/bookings/bookedseats/{date}/{timeSlot} [all booked seats by date and timeSlot]
+
+
+http://3.90.205.148/bookings/freeseats/{date}/{hall}/{timeSlot} [free seats for a specific schedule that can be identified by date+hall+timeSlot]
+
+http://3.90.205.148/bookings/{date}/{movieName}/}{hallName}/{timeSlot}/{userId}/{seatNr} [book a seat for a specific schedule]
